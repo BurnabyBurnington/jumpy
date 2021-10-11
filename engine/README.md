@@ -1,6 +1,11 @@
 SET CMAKE_PREFIX_PATH=C:\Qt_new\6.2.0\mingw81_64\lib\cmake
+SET CMAKE_PREFIX_PATH=C:\Qt\5.9\winrt_x64_msvc2017\lib\cmake
 
 
+set PATH=C:\Program Files (x86)\MSBuild\15.0\.Net\.NetNative\15.0.24211\x64\ilc\lib\MSCRT;%PATH%
+
+
+TODO remove these old instructions
 
 
 ## Requires
@@ -15,12 +20,15 @@ QT_LIBRARY_DIRECTORY - e.g. "C:\Qt_new\6.2.0\mingw81_64\lib"
 
 ### Build Commands
 TODO remove one of these
+cmake . -B "build64" && cmake --build build64 --config Release
 ```sh
 cmake . -B "build64"
 cmake --build build64 --config Release
+.\build64\src\Release\jumpy_engine.exe
 ```
 
 ```sh
 cmake -G "Visual Studio 16 2019" -A Win64 -S . -B "build64"
 cmake --build build64 --config Release
+.\build64\src\Release\jumpy_engine.exe
 ```

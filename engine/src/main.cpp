@@ -1,14 +1,37 @@
-#include <iostream>
-
-#include <QtWidgets\qapplication.h>
-
-
-int main(int argc, char* argv[])
+// #include <iostream>
+//
+// #include <QtCore\QDebug>
+// #include <QtWidgets\qapplication.h>
+// #include <QtWidgets\qlabel.h>
+//
+//
+// int main(int argc, char* argv[])
+// {
+//     QCoreApplication application{argc, argv};
+//
+// 	qDebug() << "Hello, World!";
+//
+// 	QLabel mywidget {"SOMETHING HERE"};
+// 	mywidget.show();
+//     //
+// 	// application.setMainWidget(mywidget)
+//     //
+//     // // TODO: Remove this line, later
+// 	// std::cout << "Hello, World2!\n";
+//
+//     return application.exec();
+// }
+#include <QLabel>
+#include <QCoreApplication>
+#include <QDebug>
+int main(int argc, char *argv[])
 {
-    QApplication application{argc, argv};
+    QCoreApplication a(argc, argv);
 
-    // TODO: Remove this line, later
-	std::cout << "Hello, World!\n";
+	QLabel mywidget {"SOMETHING HERE"};
+	mywidget.show();
 
-    return application.exec();
+    qDebug() << "Hello World";
+
+    return a.exec();
 }
