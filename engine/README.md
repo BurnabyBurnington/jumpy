@@ -1,3 +1,19 @@
+## Building
+```sh
+export CC=/opt/rh/devtoolset-9/root/bin/gcc
+export CXX=/opt/rh/devtoolset-9/root/bin/g++
+mkdir build
+cd build
+cmake ..
+cmake --build . --config Release
+```
+
+## Running
+```
+./src/jumpy_engine
+```
+
+
 SET CMAKE_PREFIX_PATH=C:\Qt_new\6.2.0\mingw81_64\lib\cmake
 SET CMAKE_PREFIX_PATH=C:\Qt\5.9\winrt_x64_msvc2017\lib\cmake
 
