@@ -1,8 +1,16 @@
 cmake_minimum_required(VERSION 3.16)
 project(jumpy_game LANGUAGES CXX)
 
-# If in a distributed build, this find_package would instead get from CMAKE_PREFIX_PATH
-find_package(jumpy_engine HINT ${CMAKE_CURRENT_SOURCE_DIR}../engine/)
+# In a distributed build, this find_package would instead get from
+# CMAKE_PREFIX_PATH But since the engine is in the same repository, might as
+# well cheat a bit :)
+#
+# If the engine is in another location, use CMAKE_PREFIX_PATH to point to that
+# directory, instead.
+#
+find_package(JumpyEngine
+    HINTS ${CMAKE_CURRENT_SOURCE_DIR}/../engine/build/install/lib/cmake/jumpy_engine REQUIRED
+)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 add_subdirectory(src)

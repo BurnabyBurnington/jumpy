@@ -5,7 +5,7 @@ export CXX=/opt/rh/devtoolset-9/root/bin/g++
 mkdir build
 cd build
 cmake ..
-cmake -DCMAKE_INSTALL_PREFIX=install --build . --config Release --install .
+cmake --build . --target install
 ```
 
 

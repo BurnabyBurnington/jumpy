@@ -10,10 +10,16 @@ target_include_directories(jumpy_engine
 )
 
 # 2. Install the engine as a shared library
+include(GNUInstallDirs)  # Needed for CMAKE_INSTALL_*DIR variables
 install(
     TARGETS jumpy_engine
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
+install(
+    DIRECTORY
+        include
+    DESTINATION
+        ./jumpy_engine
 )
 
 # 3. Export the engine so games can use it
