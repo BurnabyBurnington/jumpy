@@ -1,12 +1,20 @@
-add_executable(jumpy_engine
-	main.cpp
+# 1. Define the base engine
+add_library(jumpy_engine
+    SHARED
+        lib/window.cpp
 )
 
-target_compile_features(jumpy_engine PRIVATE cxx_std_17)
-target_link_libraries(jumpy_engine PRIVATE Qt5::Widgets)
+target_include_directories(jumpy_engine
+    PRIVATE
+        include
+)
 
-# TODO : Fix this later
+# 2. Export / Install everything
+include(cmake/export_all.cmake)
+
 install(
-    TARGETS jumpy_engine
-    DESTINATION .
+    DIRECTORY
+        include
+    DESTINATION
+        include
 )

@@ -2,13 +2,15 @@
 #include <QDebug>
 #include <QLabel>
 
+#include <window.h>
+
 
 int main(int argc, char *argv[])
 {
     QApplication application(argc, argv);
 
-	QLabel mywidget {"SOMETHING HERE"};
-	mywidget.show();
+    engine::Window window {};
+    window.show();
 
     qDebug() << "Hello World";
 
