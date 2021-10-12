@@ -1,16 +1,11 @@
-## Building
+## Local Build
 ```sh
 export CC=/opt/rh/devtoolset-9/root/bin/gcc
 export CXX=/opt/rh/devtoolset-9/root/bin/g++
 mkdir build
 cd build
 cmake ..
-cmake --build . --config Release
-```
-
-## Running
-```
-./src/jumpy_engine
+cmake -DCMAKE_INSTALL_PREFIX=install --build . --config Release --install .
 ```
 
 
