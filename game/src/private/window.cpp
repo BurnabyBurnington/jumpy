@@ -20,12 +20,7 @@ namespace game {
             +0.1f, -0.1f,
         };
 
-        glBufferData(
-            GL_ARRAY_BUFFER,
-            sizeof(vertices),
-            vertices,
-            GL_STATIC_DRAW
-        );
+        glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
     }
 
     void Window::paintGL()
