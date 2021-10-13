@@ -1,4 +1,5 @@
 #include <GL/glew.h>
+#include <QDebug>
 #include <cassert>
 #include "window.h"
 
@@ -21,6 +22,9 @@ namespace game {
         };
 
         glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+        this->connect(&this->timer, &QTimer::timeout, this, &Window::myUpdate);
+        this->timer.start(0);
     }
 
     void Window::paintGL()
@@ -29,5 +33,9 @@ namespace game {
         glEnableVertexAttribArray(0);
         glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
         glDrawArrays(GL_TRIANGLES, 0, 3);
+    }
+
+    void Window::myUpdate()
+    {
     }
 }
