@@ -9,6 +9,8 @@ target_include_directories(jumpy_game PRIVATE private)
 
 target_link_libraries(jumpy_game
     PRIVATE
+        GLEW
+
         Qt5::Widgets
         Qt5::OpenGL
 

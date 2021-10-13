@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
 project(jumpy_game LANGUAGES CXX)
 
+find_package(Qt5 COMPONENTS Widgets OpenGL REQUIRED)
+find_library(GLEW GLEW REQUIRED)
+
 # In a distributed build, this find_package would instead get from
 # CMAKE_PREFIX_PATH But since the engine is in the same repository, might as
 # well cheat a bit :)
@@ -11,6 +14,5 @@ project(jumpy_game LANGUAGES CXX)
 find_package(JumpyEngine
     HINTS ${CMAKE_CURRENT_SOURCE_DIR}/../engine/build/install/lib/cmake/jumpy_engine REQUIRED
 )
-find_package(Qt5 COMPONENTS Widgets OpenGL REQUIRED)
 
 add_subdirectory(src)
