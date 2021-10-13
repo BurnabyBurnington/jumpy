@@ -15,7 +15,7 @@ namespace game {
         glBindBuffer(GL_ARRAY_BUFFER, this->vertex_buffer_id);
 
         float vertices[] = {
-            +0.0f, +0.1,
+            +0.0f, +0.1f,
             -0.1f, -0.1f,
             +0.1f, -0.1f,
         };
