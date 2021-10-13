@@ -11,6 +11,6 @@ project(jumpy_game LANGUAGES CXX)
 find_package(JumpyEngine
     HINTS ${CMAKE_CURRENT_SOURCE_DIR}/../engine/build/install/lib/cmake/jumpy_engine REQUIRED
 )
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
+find_package(Qt5 COMPONENTS Widgets OpenGL REQUIRED)
 
 add_subdirectory(src)

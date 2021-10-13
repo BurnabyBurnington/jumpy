@@ -1,8 +1,8 @@
 #pragma once
 
-#include <QtOpenGL/qglwidget>
+#include <QtOpenGL/QGLWidget>
 
 namespace game {
-    class Window : QGLWidget {
+    class Window : public QGLWidget {
     };
 };
