@@ -10,9 +10,9 @@ target_include_directories(jumpy_game PRIVATE private)
 target_link_libraries(jumpy_game
     PRIVATE
         GLEW
-
-        Qt5::Widgets
+        OpenGL
         Qt5::OpenGL
+        Qt5::Widgets
 
         jumpy_engine::jumpy_engine
 )

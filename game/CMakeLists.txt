@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
 project(jumpy_game LANGUAGES CXX)
 
-find_package(Qt5 COMPONENTS Widgets OpenGL REQUIRED)
 find_library(GLEW GLEW REQUIRED)
+find_package(OpenGL REQUIRED)
+find_package(Qt5 COMPONENTS Widgets OpenGL REQUIRED)
 
 # In a distributed build, this find_package would instead get from
 # CMAKE_PREFIX_PATH But since the engine is in the same repository, might as
