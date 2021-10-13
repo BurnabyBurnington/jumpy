@@ -5,6 +5,8 @@ find_library(GLEW GLEW REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(Qt5 COMPONENTS Widgets OpenGL REQUIRED)
 
+# Reference: https://doc.qt.io/qt-5/cmake-get-started.html
+#
 # Note: Needed in order to MOC for signals and slots
 # Reference: https://doc.qt.io/qt-5/moc.html
 #
