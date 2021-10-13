@@ -11,11 +11,9 @@ find_package(Qt5 COMPONENTS Widgets OpenGL REQUIRED)
 # Reference: https://doc.qt.io/qt-5/moc.html
 #
 set(CMAKE_AUTOMOC ON)
-# set(CMAKE_AUTORCC ON)
-# set(CMAKE_AUTOUIC ON)
 
 # In a distributed build, this find_package would instead get from
-# CMAKE_PREFIX_PATH But since the engine is in the same repository, might as
+# CMAKE_PREFIX_PATH But since the engine is in the same repository, we might as
 # well cheat a bit :)
 #
 # If the engine is in another location, use CMAKE_PREFIX_PATH to point to that
@@ -26,3 +24,16 @@ find_package(JumpyEngine
 )
 
 add_subdirectory(src)
+
+# - mail forwarding
+# - utilities
+# - the curtain trimming
+
+# Reference: https://cmake.org/cmake/help/latest/command/enable_testing.html
+# Reference: https://stackoverflow.com/a/50476125
+#
+include(CTest)
+
+if(BUILD_TESTING)
+    add_subdirectory(tests)
+endif()
