@@ -27,6 +27,7 @@ cmake --build build
 ## Building And Running Tests
 ### Requirements
 These requirements are only needed if you want to run the unittest suite
+
 ```sh
 sudo yum install -y gtest
 ```
@@ -37,7 +38,6 @@ TODO
 
 ## Additional Notes
 Uses GLEW 2.2.0
-
 
 
 https://raymii.org/s/tutorials/Cpp_project_setup_with_cmake_and_unit_tests.html
