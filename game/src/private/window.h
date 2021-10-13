@@ -3,11 +3,10 @@
 #include <QtOpenGL/QGLWidget>
 #include <QtOpenGL/qgl.h>  // Needed for `GLuint`
 
-
 namespace game {
     class Window : public QGLWidget {
         private:
-            GLuint vertex_buffer_id;
+            GLuint vertexBufferId;
 
         protected:
             virtual void initializeGL();

@@ -5,14 +5,14 @@
 namespace game {
     void Window::initializeGL()
     {
-        auto error_code = glewInit();
+        auto errorCode = glewInit();
         // TODO : Make this a proper logger later
         // Reference: https://youtu.be/yDgbNeYmG7g?t=605
         //
-        assert(error_code == 0);
+        assert(errorCode == 0);
 
-        glGenBuffers(1, &this->vertex_buffer_id);
-        glBindBuffer(GL_ARRAY_BUFFER, this->vertex_buffer_id);
+        glGenBuffers(1, &this->vertexBufferId);
+        glBindBuffer(GL_ARRAY_BUFFER, this->vertexBufferId);
 
         float vertices[] = {
             +0.0f, +0.1f,
