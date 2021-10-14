@@ -1,14 +1,24 @@
 #include <vector2D.h>
 #include <cassert>
+#include "ctest.h"
 
-int main() {
-    auto first = engine::Vector2D {10, 12};
-    auto second = engine::Vector2D {-2, 100};
+CTEST(suite1, test1) {
+    auto first {1};
+    auto second {1};
 
-    auto vector = first + second;
+    ASSERT_EQUAL(first, second);
+}
 
-    assert(vector.x == 8);
-    assert(vector.y == 112);
+CTEST(suite1, test2) {
+    auto first {1};
+    auto second {2};
 
-    return 0;
+    ASSERT_EQUAL(first, second);
+}
+
+CTEST(suite2, test1) {
+    auto first {2};
+    auto second {2};
+
+    ASSERT_EQUAL(first, second);
 }

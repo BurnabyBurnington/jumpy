@@ -11,16 +11,16 @@ namespace engine {
             int x;
             int y;
 
-            friend Vector2D operator+(Vector2D &left, Vector2D &right);
-            friend Vector2D operator*(Vector2D &left, Vector2D &right);
+            friend Vector2D operator+(Vector2D const &left, Vector2D const &right);
+            friend Vector2D operator*(Vector2D const &left, Vector2D const &right);
     };
 
-    Vector2D operator+(Vector2D &left, Vector2D &right)
+    Vector2D operator+(Vector2D const &left, Vector2D const &right)
     {
         return Vector2D {left.x + right.x, left.y + right.y};
     }
 
-    Vector2D operator*(Vector2D &left, Vector2D &right)
+    Vector2D operator*(Vector2D const &left, Vector2D const &right)
     {
         return Vector2D {left.x * right.x, left.y * right.y};
     }
