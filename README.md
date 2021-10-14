@@ -1,6 +1,32 @@
 ## TODO
+- Make all warnings into errors
 - Add tests as a separate, optional build step
 - Add CI for the GitHub project
+- try out ctest
+- add travis.ci for CI
+- change warnings into errors (display all warnings)
+- read through this - https://github.com/lefticus/crategameengine/blob/master/game_loader/main.cpp
+
+
+# 2D Vector Attempt
+http://www.danielsoltyka.com/programming/2010/05/30/c-vector2d-rectangle-classes/
+https://codereview.stackexchange.com/questions/26608/review-of-2d-vector-class
+
+
+## Information On Operator Overloading
+https://stackoverflow.com/questions/4421706/what-are-the-basic-rules-and-idioms-for-operator-overloading/4421729#4421729
+https://stackoverflow.com/questions/3279543/what-is-the-copy-and-swap-idiom
+https://stackoverflow.com/questions/856542/elegant-solution-to-duplicate-const-and-non-const-getters
+https://www.geeksforgeeks.org/function-overloading-and-const-functions/
+https://stackoverflow.com/questions/13410848/c-should-i-make-operator-const-and-does-it-return-a-reference
+
+## Templates and non-member functions
+https://stackoverflow.com/questions/2881925/c-non-member-functions-for-nested-template-classes
+https://stackoverflow.com/questions/38729266/nonmember-template-function/38729383
+https://stackoverflow.com/questions/38729266/nonmember-template-function/38729383
+
+
+## More Stuff
 
 
 https://stackoverflow.com/questions/498106/how-do-i-compile-a-visual-studio-project-from-the-command-line
