@@ -1,3 +1,7 @@
+## TODO
+- Change unittesting to instead be assert-based (so we can have more
+  than one test in a single executable)
+
 ## Local Build
 ```sh
 export CC=/opt/rh/devtoolset-9/root/bin/gcc

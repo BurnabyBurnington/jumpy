@@ -1,7 +1,7 @@
 # 1. Define the base engine
 add_library(jumpy_engine
     SHARED
-        lib/window.cpp
+        lib/vector2D.cpp
 )
 
 target_include_directories(jumpy_engine

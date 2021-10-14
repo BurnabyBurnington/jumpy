@@ -25,10 +25,6 @@ find_package(JumpyEngine
 
 add_subdirectory(src)
 
-# - mail forwarding
-# - utilities
-# - the curtain trimming
-
 # Reference: https://cmake.org/cmake/help/latest/command/enable_testing.html
 # Reference: https://stackoverflow.com/a/50476125
 #
