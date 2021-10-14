@@ -12,7 +12,9 @@ namespace engine {
             int y;
 
             friend Vector2D operator+(Vector2D const &left, Vector2D const &right);
-            friend Vector2D operator*(Vector2D const &left, Vector2D const &right);
+            friend Vector2D operator+(Vector2D const &left, float scalar);
+            // TODO: Add this
+            // friend Vector2D operator*(Vector2D const &left, Vector2D const &right);
     };
 
     Vector2D operator+(Vector2D const &left, Vector2D const &right)
@@ -20,10 +22,18 @@ namespace engine {
         return Vector2D {left.x + right.x, left.y + right.y};
     }
 
-    Vector2D operator*(Vector2D const &left, Vector2D const &right)
+    // TODO: Make sure to convert `float` into `T` once this is a template class
+    // TODO: Shouldn't this return a reference?
+    Vector2D operator+(Vector2D const &left, float scalar)
     {
-        return Vector2D {left.x * right.x, left.y * right.y};
+        return Vector2D {left.x + scalar, left.y + scalar};
     }
+
+    // TODO: Add this
+    // Vector2D operator*(Vector2D const &left, Vector2D const &right)
+    // {
+    //     return Vector2D {left.x * right.x, left.y * right.y};
+    // }
 
     // template<class T>
     // class Vector2D
