@@ -1,9 +1,9 @@
-add_executable(test_simple test_simple.cpp)
-target_link_libraries(test_simple
+add_executable(test_vector test_vector.cpp)
+target_link_libraries(test_vector
     PRIVATE
         jumpy_engine
 )
-target_include_directories(test_simple
+target_include_directories(test_vector
     PRIVATE
         ../src/include
 )
