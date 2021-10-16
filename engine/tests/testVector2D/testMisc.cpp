@@ -5,6 +5,6 @@ CTEST(vector_basics, test_initialization)
 {
     engine::Vector2D vector {};
 
-    ASSERT_EQUAL(vector.x, 0);
-    ASSERT_EQUAL(vector.y, 0);
+    ASSERT_EQUAL(0, vector.x);
+    ASSERT_EQUAL(0, vector.y);
 }

@@ -9,12 +9,12 @@ CTEST(multiplication_const_operators, test_scalar) {
     auto const first = engine::Vector2D {10, 12};
 
     auto const vector_1 = first * 2;
-    ASSERT_EQUAL(vector_1.x, 20);
-    ASSERT_EQUAL(vector_1.y, 24);
+    ASSERT_EQUAL(20, vector_1.x);
+    ASSERT_EQUAL(24, vector_1.y);
 
     auto const vector_2 = first * -2;
-    ASSERT_EQUAL(vector_2.x, -20);
-    ASSERT_EQUAL(vector_2.y, -24);
+    ASSERT_EQUAL(-20, vector_2.x);
+    ASSERT_EQUAL(-24, vector_2.y);
 }
 
 CTEST(multiplication_const_operators, test_vector) {
@@ -23,25 +23,25 @@ CTEST(multiplication_const_operators, test_vector) {
 
     auto const vector1 = first * second;
 
-    ASSERT_EQUAL(vector1.x, -20);
-    ASSERT_EQUAL(vector1.y, 1200);
+    ASSERT_EQUAL(-20, vector1.x);
+    ASSERT_EQUAL(1200, vector1.y);
 
     auto const vector2 = second * first;
 
-    ASSERT_EQUAL(vector2.x, -20);
-    ASSERT_EQUAL(vector2.y, 1200);
+    ASSERT_EQUAL(-20, vector2.x);
+    ASSERT_EQUAL(1200, vector2.y);
 }
 
 CTEST(multiplication_operators, test_scalar) {
     auto first = engine::Vector2D {10, 12};
 
     auto vector_1 = first * 2;
-    ASSERT_EQUAL(vector_1.x, 20);
-    ASSERT_EQUAL(vector_1.y, 24);
+    ASSERT_EQUAL(20, vector_1.x);
+    ASSERT_EQUAL(24, vector_1.y);
 
     auto vector_2 = first * -2;
-    ASSERT_EQUAL(vector_2.x, -20);
-    ASSERT_EQUAL(vector_2.y, -24);
+    ASSERT_EQUAL(-20, vector_2.x);
+    ASSERT_EQUAL(-24, vector_2.y);
 }
 
 CTEST(multiplication_operators, test_vector) {
@@ -50,11 +50,11 @@ CTEST(multiplication_operators, test_vector) {
 
     auto vector1 = first * second;
 
-    ASSERT_EQUAL(vector1.x, -20);
-    ASSERT_EQUAL(vector1.y, 1200);
+    ASSERT_EQUAL(-20, vector1.x);
+    ASSERT_EQUAL(1200, vector1.y);
 
     auto vector2 = second * first;
 
-    ASSERT_EQUAL(vector2.x, -20);
-    ASSERT_EQUAL(vector2.y, 1200);
+    ASSERT_EQUAL(-20, vector2.x);
+    ASSERT_EQUAL(1200, vector2.y);
 }

@@ -9,12 +9,12 @@ CTEST(addition_const_operators, test_scalar) {
     auto const first = engine::Vector2D {10, 12};
 
     auto const vector_1 = first + 2;
-    ASSERT_EQUAL(vector_1.x, 12);
-    ASSERT_EQUAL(vector_1.y, 14);
+    ASSERT_EQUAL(12, vector_1.x);
+    ASSERT_EQUAL(14, vector_1.y);
 
     auto const vector_2 = first + -20;
-    ASSERT_EQUAL(vector_2.x, -10);
-    ASSERT_EQUAL(vector_2.y, -8);
+    ASSERT_EQUAL(-10, vector_2.x);
+    ASSERT_EQUAL(-8, vector_2.y);
 }
 
 CTEST(addition_const_operators, test_vector) {
@@ -23,13 +23,13 @@ CTEST(addition_const_operators, test_vector) {
 
     auto const vector1 = first + second;
 
-    ASSERT_EQUAL(vector1.x, 8);
-    ASSERT_EQUAL(vector1.y, 112);
+    ASSERT_EQUAL(8, vector1.x);
+    ASSERT_EQUAL(112, vector1.y);
 
     auto const vector2 = second + first;
 
-    ASSERT_EQUAL(vector2.x, 8);
-    ASSERT_EQUAL(vector2.y, 112);
+    ASSERT_EQUAL(8, vector2.x);
+    ASSERT_EQUAL(112, vector2.y);
 }
 
 // TODO: Is reflexive addition possible in C++ if the types differ?
@@ -39,12 +39,12 @@ CTEST(addition_operators, test_scalar) {
     auto first = engine::Vector2D {10, 12};
 
     auto vector_1 = first + 2;
-    ASSERT_EQUAL(vector_1.x, 12);
-    ASSERT_EQUAL(vector_1.y, 14);
+    ASSERT_EQUAL(12, vector_1.x);
+    ASSERT_EQUAL(14, vector_1.y);
 
     auto vector_2 = first + -20;
-    ASSERT_EQUAL(vector_2.x, -10);
-    ASSERT_EQUAL(vector_2.y, -8);
+    ASSERT_EQUAL(-10, vector_2.x);
+    ASSERT_EQUAL(-8, vector_2.y);
 }
 
 CTEST(addition_operators, test_vector) {
@@ -53,11 +53,11 @@ CTEST(addition_operators, test_vector) {
 
     auto vector1 = first + second;
 
-    ASSERT_EQUAL(vector1.x, 8);
-    ASSERT_EQUAL(vector1.y, 112);
+    ASSERT_EQUAL(8, vector1.x);
+    ASSERT_EQUAL(112, vector1.y);
 
     auto vector2 = second + first;
 
-    ASSERT_EQUAL(vector2.x, 8);
-    ASSERT_EQUAL(vector2.y, 112);
+    ASSERT_EQUAL(8, vector2.x);
+    ASSERT_EQUAL(112, vector2.y);
 }
