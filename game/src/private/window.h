@@ -13,7 +13,7 @@ namespace game {
             virtual void paintGL();
 
         private:
-            GLuint vertexBufferId;
+            GLuint vertexBufferId;  // A bind point for the OpenGL data
             QTimer timer;
 
         // TODO : Check if I can make tis private
