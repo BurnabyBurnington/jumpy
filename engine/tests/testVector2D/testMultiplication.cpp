@@ -1,6 +1,6 @@
-#include <vector2D.h>
 #include <cassert>
-#include "ctest.h"
+#include <ctest.h>
+#include <vector2D.h>
 
 // TODO: Add tests with a huge float value
 // TODO: Add tests to ensure the + operator can be chained repeatedly
@@ -21,10 +21,15 @@ CTEST(multiplication_const_operators, test_vector) {
     auto const first = engine::Vector2D {10, 12};
     auto const second = engine::Vector2D {-2, 100};
 
-    auto const vector = first * second;
+    auto const vector1 = first * second;
 
-    ASSERT_EQUAL(vector.x, -20);
-    ASSERT_EQUAL(vector.y, 1200);
+    ASSERT_EQUAL(vector1.x, -20);
+    ASSERT_EQUAL(vector1.y, 1200);
+
+    auto const vector2 = second * first;
+
+    ASSERT_EQUAL(vector2.x, -20);
+    ASSERT_EQUAL(vector2.y, 1200);
 }
 
 CTEST(multiplication_operators, test_scalar) {
@@ -43,8 +48,13 @@ CTEST(multiplication_operators, test_vector) {
     auto first = engine::Vector2D {10, 12};
     auto second = engine::Vector2D {-2, 100};
 
-    auto vector = first * second;
+    auto vector1 = first * second;
 
-    ASSERT_EQUAL(vector.x, -20);
-    ASSERT_EQUAL(vector.y, 1200);
+    ASSERT_EQUAL(vector1.x, -20);
+    ASSERT_EQUAL(vector1.y, 1200);
+
+    auto vector2 = second * first;
+
+    ASSERT_EQUAL(vector2.x, -20);
+    ASSERT_EQUAL(vector2.y, 1200);
 }

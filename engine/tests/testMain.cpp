@@ -2,7 +2,7 @@
 
 #define CTEST_SEGFAULT
 
-#include "ctest.h"
+#include <ctest.h>
 
 
 int main(int argc, char const *argv[])

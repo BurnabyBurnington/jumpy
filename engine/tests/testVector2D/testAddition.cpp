@@ -1,6 +1,6 @@
-#include <vector2D.h>
 #include <cassert>
-#include "ctest.h"
+#include <ctest.h>
+#include <vector2D.h>
 
 // TODO: Add tests with a huge int value
 // TODO: Add tests to ensure the + operator can be chained repeatedly
@@ -21,12 +21,20 @@ CTEST(addition_const_operators, test_vector) {
     auto const first = engine::Vector2D {10, 12};
     auto const second = engine::Vector2D {-2, 100};
 
-    auto const vector = first + second;
+    auto const vector1 = first + second;
 
-    ASSERT_EQUAL(vector.x, 8);
-    ASSERT_EQUAL(vector.y, 112);
+    ASSERT_EQUAL(vector1.x, 8);
+    ASSERT_EQUAL(vector1.y, 112);
+
+    auto const vector2 = second + first;
+
+    ASSERT_EQUAL(vector2.x, 8);
+    ASSERT_EQUAL(vector2.y, 112);
 }
 
+// TODO: Is reflexive addition possible in C++ if the types differ?
+// Double-check this. Do the same for multiplication, too
+//
 CTEST(addition_operators, test_scalar) {
     auto first = engine::Vector2D {10, 12};
 
@@ -43,8 +51,13 @@ CTEST(addition_operators, test_vector) {
     auto first = engine::Vector2D {10, 12};
     auto second = engine::Vector2D {-2, 100};
 
-    auto vector = first + second;
+    auto vector1 = first + second;
 
-    ASSERT_EQUAL(vector.x, 8);
-    ASSERT_EQUAL(vector.y, 112);
+    ASSERT_EQUAL(vector1.x, 8);
+    ASSERT_EQUAL(vector1.y, 112);
+
+    auto vector2 = second + first;
+
+    ASSERT_EQUAL(vector2.x, 8);
+    ASSERT_EQUAL(vector2.y, 112);
 }
