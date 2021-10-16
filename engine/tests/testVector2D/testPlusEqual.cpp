@@ -32,6 +32,6 @@ CTEST(plus_equal_operators, test_vector) {
     auto vector4 = engine::Vector2D {4, 300};
 
     vector4 += vector3;
-    ASSERT_EQUAL(-24, vector3.x);
-    ASSERT_EQUAL(266, vector3.y);
+    ASSERT_EQUAL(-26, vector4.x);
+    ASSERT_EQUAL(266, vector4.y);
 }
