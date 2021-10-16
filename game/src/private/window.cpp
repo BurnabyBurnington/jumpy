@@ -5,13 +5,13 @@
 #include "window.h"
 
 namespace {
-    static engine::Vector2D VERTICES[] = {
+    engine::Vector2D VERTICES[] = {
         {+0.0f, +0.1f},
         {-0.1f, -0.1f},
         {+0.1f, -0.1f},
     };
-    static const unsigned int VERTICES_COUNT = sizeof(VERTICES) / sizeof(VERTICES[0]);
-    engine::Vector2D SHIP_POSITION {100, 100};
+    const unsigned int VERTICES_COUNT = sizeof(VERTICES) / sizeof(VERTICES[0]);
+    engine::Vector2D SHIP_POSITION {0, 0};
 }
 
 namespace game {
