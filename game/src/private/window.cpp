@@ -6,9 +6,9 @@
 
 namespace {
     engine::Vector2D VERTICES[] = {
-        {+0.0f, +0.1f},
-        {-0.1f, -0.1f},
-        {+0.1f, -0.1f},
+        {+0.0f, +1.0f},
+        {-1.0f, -1.0f},
+        {+1.0f, -1.0f},
     };
     const unsigned int VERTICES_COUNT = sizeof(VERTICES) / sizeof(VERTICES[0]);
     engine::Vector2D SHIP_POSITION {0, 0};
@@ -40,7 +40,6 @@ namespace game {
         glClear(GL_COLOR_BUFFER_BIT);
         glEnableVertexAttribArray(0);
         glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
 
         engine::Vector2D translatedVertices[VERTICES_COUNT];
 
@@ -49,13 +48,18 @@ namespace game {
             translatedVertices[index] = VERTICES[index] + SHIP_POSITION;
         }
 
-        glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(translatedVertices), translatedVertices);
+        glBufferSubData(
+            GL_ARRAY_BUFFER,
+            0,
+            sizeof(translatedVertices),
+            translatedVertices
+        );
         glDrawArrays(GL_TRIANGLES, 0, 3);
     }
 
     void Window::myUpdate()
     {
-        engine::Vector2D velocity {0.1f, 0.1f};
+        engine::Vector2D velocity {0.0001f, 0.0001f};
         SHIP_POSITION += velocity;
     }
 }
