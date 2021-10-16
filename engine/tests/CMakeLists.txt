@@ -1,8 +1,9 @@
 add_executable(run_tests
+    testMain.cpp
     testVector2D/testAddition.cpp
     testVector2D/testMisc.cpp
     testVector2D/testMultiplication.cpp
-    testMain.cpp
+    testVector2D/testPlusEqual.cpp
 )
 target_compile_features(run_tests PRIVATE cxx_std_17)
 target_link_libraries(run_tests

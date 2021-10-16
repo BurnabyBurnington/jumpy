@@ -16,6 +16,26 @@ namespace engine {
             friend Vector2D operator+(Vector2D const &left, float scalar);
             friend Vector2D operator*(Vector2D const &left, Vector2D const &right);
             friend Vector2D operator*(Vector2D const &left, float scalar);
+
+            Vector2D& operator+=(Vector2D const &right)
+            {
+                // TODO: Maybe I can somehow reuse operator+ or vice versa?
+                this->x += right.x;
+                this->y += right.y;
+
+                return *this;
+            }
+
+            // TODO: Make sure to convert `float` into `T` once this is a template class
+            // TODO: Shouldn't this return a reference?
+            Vector2D& operator+=(float scalar)
+            {
+                this->x += scalar;
+                this->y += scalar;
+
+                return *this;
+            }
+
     };
 
     // template<class T>

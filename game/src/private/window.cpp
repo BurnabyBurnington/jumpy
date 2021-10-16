@@ -4,14 +4,15 @@
 #include <vector2D.h>
 #include "window.h"
 
-static engine::Vector2D VERTICES[] = {
-    {+0.0f, +0.1f},
-    {-0.1f, -0.1f},
-    {+0.1f, -0.1f},
-};
-
-static const unsigned int VERTICES_COUNT = sizeof(VERTICES) / sizeof(VERTICES[0]);
-
+namespace {
+    static engine::Vector2D VERTICES[] = {
+        {+0.0f, +0.1f},
+        {-0.1f, -0.1f},
+        {+0.1f, -0.1f},
+    };
+    static const unsigned int VERTICES_COUNT = sizeof(VERTICES) / sizeof(VERTICES[0]);
+    engine::Vector2D SHIP_POSITION {100, 100};
+}
 
 namespace game {
     void Window::initializeGL()
@@ -41,13 +42,11 @@ namespace game {
         glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
-        // TODO: Don't I need `shipPosition` in initializeGL?
-        engine::Vector2D shipPosition {100, 100};
         engine::Vector2D translatedVertices[VERTICES_COUNT];
 
         for (unsigned int index = 0; index < VERTICES_COUNT; ++index)
         {
-            translatedVertices[index] = VERTICES[index] + shipPosition;
+            translatedVertices[index] = VERTICES[index] + SHIP_POSITION;
         }
 
         glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(translatedVertices), translatedVertices);
@@ -56,5 +55,7 @@ namespace game {
 
     void Window::myUpdate()
     {
+        engine::Vector2D velocity {0.1f, 0.1f};
+        SHIP_POSITION += velocity;
     }
 }
