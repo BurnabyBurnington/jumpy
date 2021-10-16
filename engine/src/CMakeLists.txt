@@ -19,7 +19,7 @@ install(
     DIRECTORY
         include
     DESTINATION
-        ./jumpy_engine
+        .
 )
 
 # 3. Export the engine so games can use it

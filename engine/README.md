@@ -8,7 +8,7 @@ export CC=/opt/rh/devtoolset-9/root/bin/gcc
 export CXX=/opt/rh/devtoolset-9/root/bin/g++
 mkdir build
 cd build
-cmake ..
+cmake .. -DCMAKE_INSTALL_PREFIX=$PWD/install
 cmake --build . --target install
 ```
 
