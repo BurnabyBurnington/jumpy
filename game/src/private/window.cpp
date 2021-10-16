@@ -59,7 +59,7 @@ namespace game {
 
     void Window::myUpdate()
     {
-        engine::Vector2D velocity {0.0001f, 0.0001f};
+        engine::Vector2D velocity {0.0000001f, 0.00000001f};
         SHIP_POSITION += velocity;
     }
 }
