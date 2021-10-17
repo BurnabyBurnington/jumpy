@@ -1,7 +1,7 @@
 #include <ctest.h>
 #include <vector2D.h>
 
-CTEST(vector_basics, test_initialization)
+CTEST(vectorBasics, initialization)
 {
     engine::Vector2D vector {};
 

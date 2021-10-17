@@ -5,7 +5,7 @@
 // TODO: Add tests with a huge int value
 // TODO: Add tests to ensure the + operator can be chained repeatedly
 
-CTEST(addition_const_operators, test_scalar) {
+CTEST(additionConstOperators, scalar) {
     auto const first = engine::Vector2D {10, 12};
 
     auto const vector_1 = first + 2;
@@ -17,7 +17,7 @@ CTEST(addition_const_operators, test_scalar) {
     ASSERT_EQUAL(-8, vector_2.y);
 }
 
-CTEST(addition_const_operators, test_vector) {
+CTEST(additionConstOperators, vector) {
     auto const first = engine::Vector2D {10, 12};
     auto const second = engine::Vector2D {-2, 100};
 
@@ -35,7 +35,7 @@ CTEST(addition_const_operators, test_vector) {
 // TODO: Is reflexive addition possible in C++ if the types differ?
 // Double-check this. Do the same for multiplication, too
 //
-CTEST(addition_operators, test_scalar) {
+CTEST(additionOperators, test_scalar) {
     auto first = engine::Vector2D {10, 12};
 
     auto vector_1 = first + 2;
@@ -47,7 +47,7 @@ CTEST(addition_operators, test_scalar) {
     ASSERT_EQUAL(-8, vector_2.y);
 }
 
-CTEST(addition_operators, test_vector) {
+CTEST(additionOperators, vector) {
     auto first = engine::Vector2D {10, 12};
     auto second = engine::Vector2D {-2, 100};
 

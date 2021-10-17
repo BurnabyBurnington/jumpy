@@ -8,7 +8,7 @@
 // TODO: Is reflexive plus_equal possible in C++ if the types differ?
 // Double-check this. Do the same for multiplication, too
 //
-CTEST(plus_equal_operators, test_scalar) {
+CTEST(plusEqualOperators, scalar) {
     auto vector_1 = engine::Vector2D {10, 12};
     vector_1 += 2;
     ASSERT_EQUAL(12, vector_1.x);
@@ -20,7 +20,7 @@ CTEST(plus_equal_operators, test_scalar) {
     ASSERT_EQUAL(-8, vector_2.y);
 }
 
-CTEST(plus_equal_operators, test_vector) {
+CTEST(plusEqualOperators, vector) {
     auto vector1 = engine::Vector2D {10, 12};
     auto vector2 = engine::Vector2D {-2, 100};
 
