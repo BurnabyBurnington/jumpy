@@ -2,6 +2,7 @@
 add_library(jumpy_engine
     SHARED
         lib/vector2D.cpp
+        lib/clock.cpp
 )
 
 target_include_directories(jumpy_engine
