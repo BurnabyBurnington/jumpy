@@ -75,7 +75,14 @@ namespace game {
 
     void Window::myUpdate()
     {
-        engine::Vector2D velocity {0.0000001f, 0.00000001f};
-        SHIP_POSITION += velocity;
+        // TODO: Need to make this a proper while loop, probably. And possibly
+        // add ECS, if needed
+        //
+        CLOCK.newFrame();
+        auto scalar = CLOCK.timeSinceLastFrame();
+        engine::Vector2D velocity {0.1f, 0.1f};
+        SHIP_POSITION += velocity * scalar;
+
+        this->repaint();
     }
 }
