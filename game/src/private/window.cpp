@@ -29,12 +29,13 @@ namespace game {
 
         glGenBuffers(1, &this->vertexBufferId);
         glBindBuffer(GL_ARRAY_BUFFER, this->vertexBufferId);
-
         // glBufferData allocates and sends the data (points) to RAM
         // GL_DYNAMIC_DRAW - "Please refresh this buffer data over time"
         // NULL - "We will tell you where this RAM's points will be later"
         //
         glBufferData(GL_ARRAY_BUFFER, sizeof(VERTICES), NULL, GL_DYNAMIC_DRAW);
+
+        glViewport(0, 0, this->width(), this->height());
 
         this->connect(&this->timer, &QTimer::timeout, this, &Window::myUpdate);
         this->timer.start(0);
@@ -42,6 +43,8 @@ namespace game {
 
     void Window::paintGL()
     {
+        glClear(GL_COLOR_BUFFER_BIT);
+
         // To get OpenGL to send the data to RAM into the processing
         // pipeline, you have to tell OpenGL to enable that attribute
         // Attribute 0 is meaningless. But because we only have 1 attribute
@@ -69,7 +72,6 @@ namespace game {
             sizeof(translatedVertices),
             translatedVertices
         );
-        glViewport(0, 0, this->width(), this->height());
         glDrawArrays(GL_TRIANGLES, 0, VERTICES_COUNT);
     }
 
