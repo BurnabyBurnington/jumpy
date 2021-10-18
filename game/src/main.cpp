@@ -11,8 +11,5 @@ int main(int argc, char *argv[])
     game::Window window {};
     window.show();
 
-    // TODO: Remove this later
-    qDebug() << "Hello World";
-
     return application.exec();
 }
