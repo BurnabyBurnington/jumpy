@@ -4,6 +4,8 @@
 - Check if methods can use symbols, like +=
 - Make clock into a context block, because that's more fun
 
+- Consider moving Clock into a separate namespace
+
 ## Local Build
 ```sh
 export CC=/opt/rh/devtoolset-9/root/bin/gcc

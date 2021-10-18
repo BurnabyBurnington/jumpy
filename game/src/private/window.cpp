@@ -1,6 +1,7 @@
 #include <GL/glew.h>
 #include <QDebug>
 #include <cassert>
+#include <clock.h>
 #include <vector2D.h>
 #include "window.h"
 
@@ -12,6 +13,7 @@ namespace {
     };
     const unsigned int VERTICES_COUNT = sizeof(VERTICES) / sizeof(VERTICES[0]);
     engine::Vector2D SHIP_POSITION {0, 0};
+    engine::Clock CLOCK;
 }
 
 namespace game {
@@ -22,6 +24,8 @@ namespace game {
         // Reference: https://youtu.be/yDgbNeYmG7g?t=605
         //
         assert(errorCode == 0);
+
+        CLOCK.initialize();
 
         glGenBuffers(1, &this->vertexBufferId);
         glBindBuffer(GL_ARRAY_BUFFER, this->vertexBufferId);
@@ -42,6 +46,8 @@ namespace game {
         // pipeline, you have to tell OpenGL to enable that attribute
         // Attribute 0 is meaningless. But because we only have 1 attribute
         // (position), we use 0 as the 1st index in order to mean "position".
+        //
+        // TODO: Move this later
         //
         GLuint attributeIndex {0};
         glEnableVertexAttribArray(attributeIndex);
