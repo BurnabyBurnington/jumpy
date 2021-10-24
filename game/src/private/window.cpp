@@ -11,7 +11,7 @@
 #include "window.h"
 
 namespace {
-    const float MOVEMENT_SPEED = 1.0f;
+    const float BASE_VELOCITY = 0.07f;
     engine::Vector2D VERTICES[] = {
         {-0.05f, +0.1f},
         {-0.1f, -0.1f},
@@ -19,6 +19,7 @@ namespace {
     };
     const unsigned int VERTICES_COUNT = sizeof(VERTICES) / sizeof(VERTICES[0]);
     engine::Vector2D SHIP_POSITION {0, 0};
+    engine::Vector2D SHIP_VELOCITY {0, 0};
     engine::Clock CLOCK;
 }
 
@@ -45,24 +46,28 @@ namespace game {
         this->timer.start(0);
     }
 
-    void Window::checkKeyState(float scalar)
+    void Window::updateVelocity(float scalar)
     {
+        auto acceleration = BASE_VELOCITY * scalar;
         // TODO: Is there a way to now repeatedly query the display? Double-check this
+        // Change this to be vector-based?
+        // TODO: Might be template-able?
+        //
         if (game::isKeyState(game::Direction::up))
         {
-            SHIP_POSITION.y += MOVEMENT_SPEED * scalar;
+            SHIP_VELOCITY.y += acceleration;
         }
         if (game::isKeyState(game::Direction::down))
         {
-            SHIP_POSITION.y -= MOVEMENT_SPEED * scalar;
+            SHIP_VELOCITY.y -= acceleration;
         }
         if (game::isKeyState(game::Direction::left))
         {
-            SHIP_POSITION.x -= MOVEMENT_SPEED * scalar;
+            SHIP_VELOCITY.x -= acceleration;
         }
         if (game::isKeyState(game::Direction::right))
         {
-            SHIP_POSITION.x += MOVEMENT_SPEED * scalar;
+            SHIP_VELOCITY.x += acceleration;
         }
 
     }
@@ -110,7 +115,8 @@ namespace game {
         //
         CLOCK.newFrame();
         auto scalar = CLOCK.timeSinceLastFrame();
-        checkKeyState(scalar);
+        this->updateVelocity(scalar);
+        SHIP_POSITION += SHIP_VELOCITY;
         this->repaint();
     }
 }
