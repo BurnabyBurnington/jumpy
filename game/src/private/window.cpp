@@ -10,7 +10,7 @@
 #include "window.h"
 
 namespace {
-    const float MOVEMENT_SCALAR = 0.01f;
+    const float MOVEMENT_SPEED = 0.01f;
     engine::Vector2D VERTICES[] = {
         {-0.05f, +0.1f},
         {-0.1f, -0.1f},
@@ -49,19 +49,19 @@ namespace game {
         // TODO: Make this into a configurable setting, later
         if (event->key() == Qt::Key_Up)
         {
-            SHIP_POSITION.y += MOVEMENT_SCALAR;
+            SHIP_POSITION.y += MOVEMENT_SPEED;
         }
         if (event->key() == Qt::Key_Down)
         {
-            SHIP_POSITION.y -= MOVEMENT_SCALAR;
+            SHIP_POSITION.y -= MOVEMENT_SPEED;
         }
         if (event->key() == Qt::Key_Left)
         {
-            SHIP_POSITION.x -= MOVEMENT_SCALAR;
+            SHIP_POSITION.x -= MOVEMENT_SPEED;
         }
         if (event->key() == Qt::Key_Right)
         {
-            SHIP_POSITION.x += MOVEMENT_SCALAR;
+            SHIP_POSITION.x += MOVEMENT_SPEED;
         }
     }
 
