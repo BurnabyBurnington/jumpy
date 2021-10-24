@@ -1,11 +1,16 @@
+#include <cassert>
+
 #include <GL/glew.h>
 #include <QDebug>
-#include <cassert>
+#include <QtCore/qnamespace.h>  // Needed for Qt::Key enums
+#include <QtGui/QKeyEvent>
+
 #include <clock.h>
 #include <vector2D.h>
 #include "window.h"
 
 namespace {
+    const float MOVEMENT_SCALAR = 0.01f;
     engine::Vector2D VERTICES[] = {
         {-0.05f, +0.1f},
         {-0.1f, -0.1f},
@@ -35,15 +40,36 @@ namespace game {
         //
         glBufferData(GL_ARRAY_BUFFER, sizeof(VERTICES), NULL, GL_DYNAMIC_DRAW);
 
-        glViewport(0, 0, this->width(), this->height());
-
         this->connect(&this->timer, &QTimer::timeout, this, &Window::myUpdate);
         this->timer.start(0);
+    }
+
+    void Window::keyPressEvent(QKeyEvent *event)
+    {
+        // TODO: Make this into a configurable setting, later
+        if (event->key() == Qt::Key_Up)
+        {
+            SHIP_POSITION.y += MOVEMENT_SCALAR;
+        }
+        if (event->key() == Qt::Key_Down)
+        {
+            SHIP_POSITION.y -= MOVEMENT_SCALAR;
+        }
+        if (event->key() == Qt::Key_Left)
+        {
+            SHIP_POSITION.x -= MOVEMENT_SCALAR;
+        }
+        if (event->key() == Qt::Key_Right)
+        {
+            SHIP_POSITION.x += MOVEMENT_SCALAR;
+        }
     }
 
     void Window::paintGL()
     {
         glClear(GL_COLOR_BUFFER_BIT);
+
+        glViewport(0, 0, this->width(), this->height());
 
         // To get OpenGL to send the data to RAM into the processing
         // pipeline, you have to tell OpenGL to enable that attribute
@@ -81,10 +107,6 @@ namespace game {
         // add ECS, if needed
         //
         CLOCK.newFrame();
-        auto scalar = CLOCK.timeSinceLastFrame();
-        engine::Vector2D velocity {0.1f, 0.1f};
-        SHIP_POSITION += velocity * scalar;
-
         this->repaint();
     }
 }
