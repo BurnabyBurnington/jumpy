@@ -48,44 +48,23 @@ namespace game {
     void Window::checkKeyState()
     {
         // TODO: Is there a way to now repeatedly query the display? Double-check this
-        if (game::isKeyState(XK_Up))
+        if (game::isKeyState(game::Direction::up))
         {
             SHIP_POSITION.y += MOVEMENT_SPEED;
         }
-        if (game::isKeyState(XK_down))
+        if (game::isKeyState(game::Direction::down))
         {
             SHIP_POSITION.y -= MOVEMENT_SPEED;
         }
-        if (game::isKeyState(XK_left))
+        if (game::isKeyState(game::Direction::left))
         {
             SHIP_POSITION.x -= MOVEMENT_SPEED;
         }
-        if (game::isKeyState(XK_right))
+        if (game::isKeyState(game::Direction::right))
         {
             SHIP_POSITION.x += MOVEMENT_SPEED;
         }
 
-    }
-
-    void Window::keyPressEvent(QKeyEvent *event)
-    {
-        // TODO: Make this into a configurable setting, later
-        if (event->key() == Qt::Key_Up)
-        {
-            SHIP_POSITION.y += MOVEMENT_SPEED;
-        }
-        if (event->key() == Qt::Key_Down)
-        {
-            SHIP_POSITION.y -= MOVEMENT_SPEED;
-        }
-        if (event->key() == Qt::Key_Left)
-        {
-            SHIP_POSITION.x -= MOVEMENT_SPEED;
-        }
-        if (event->key() == Qt::Key_Right)
-        {
-            SHIP_POSITION.x += MOVEMENT_SPEED;
-        }
     }
 
     void Window::paintGL()

@@ -13,7 +13,6 @@ namespace game {
         protected:
             virtual void initializeGL();
             virtual void paintGL();
-            void keyPressEvent(QKeyEvent * event);
 
         private:
             GLuint vertexBufferId;  // A bind point for the OpenGL data
