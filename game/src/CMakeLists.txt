@@ -14,6 +14,7 @@ target_link_libraries(jumpy_game
         OpenGL
         Qt5::OpenGL
         Qt5::Widgets
+        X11  # TODO: Check to make sure this works
 
         jumpy_engine::jumpy_engine
 )

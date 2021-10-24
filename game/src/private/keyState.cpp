@@ -12,7 +12,7 @@ namespace game {
     {
         char keyContent[32];
         XQueryKeymap(DISPLAY, keyContent);
-        KeyCode code = XKeysymToKeycode(DISPLAY, direction);
+        KeyCode code = XKeysymToKeycode(DISPLAY, static_cast<int>(direction));
         // TODO: Check if an explicit bool cast works
         // Reference: https://stackoverflow.com/a/49840783
         //
