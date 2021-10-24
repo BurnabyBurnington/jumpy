@@ -115,8 +115,10 @@ namespace game {
         //
         CLOCK.newFrame();
         auto scalar = CLOCK.timeSinceLastFrame();
+
         this->updateVelocity(scalar);
         SHIP_POSITION += SHIP_VELOCITY;
+
         this->repaint();
     }
 }

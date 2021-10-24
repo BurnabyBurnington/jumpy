@@ -5,6 +5,8 @@
 - Make clock into a context block, because that's more fun
 
 - Consider moving Clock into a separate namespace
+- Figure out a way to only run one test at a time
+
 
 ## Local Build
 ```sh

@@ -13,6 +13,7 @@ namespace engine {
             float x;
             float y;
 
+            // TODO: Make these inline?
             friend Vector2D operator+(Vector2D const &left, Vector2D const &right);
             friend Vector2D operator+(Vector2D const &left, float scalar);
             friend Vector2D operator*(Vector2D const &left, Vector2D const &right);
