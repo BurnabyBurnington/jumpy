@@ -11,7 +11,7 @@
 #include "window.h"
 
 namespace {
-    const float MOVEMENT_SPEED = 0.01f;
+    const float MOVEMENT_SPEED = 1.0f;
     engine::Vector2D VERTICES[] = {
         {-0.05f, +0.1f},
         {-0.1f, -0.1f},
@@ -45,24 +45,24 @@ namespace game {
         this->timer.start(0);
     }
 
-    void Window::checkKeyState()
+    void Window::checkKeyState(float scalar)
     {
         // TODO: Is there a way to now repeatedly query the display? Double-check this
         if (game::isKeyState(game::Direction::up))
         {
-            SHIP_POSITION.y += MOVEMENT_SPEED;
+            SHIP_POSITION.y += MOVEMENT_SPEED * scalar;
         }
         if (game::isKeyState(game::Direction::down))
         {
-            SHIP_POSITION.y -= MOVEMENT_SPEED;
+            SHIP_POSITION.y -= MOVEMENT_SPEED * scalar;
         }
         if (game::isKeyState(game::Direction::left))
         {
-            SHIP_POSITION.x -= MOVEMENT_SPEED;
+            SHIP_POSITION.x -= MOVEMENT_SPEED * scalar;
         }
         if (game::isKeyState(game::Direction::right))
         {
-            SHIP_POSITION.x += MOVEMENT_SPEED;
+            SHIP_POSITION.x += MOVEMENT_SPEED * scalar;
         }
 
     }
@@ -109,7 +109,8 @@ namespace game {
         // add ECS, if needed
         //
         CLOCK.newFrame();
-        checkKeyState();
+        auto scalar = CLOCK.timeSinceLastFrame();
+        checkKeyState(scalar);
         this->repaint();
     }
 }
