@@ -7,6 +7,7 @@
 
 #include <clock.h>
 #include <vector2D.h>
+#include <keyState.h>
 #include "window.h"
 
 namespace {
@@ -42,6 +43,28 @@ namespace game {
 
         this->connect(&this->timer, &QTimer::timeout, this, &Window::myUpdate);
         this->timer.start(0);
+    }
+
+    void Window::checkKeyState()
+    {
+        // TODO: Is there a way to now repeatedly query the display? Double-check this
+        if (game::isKeyState(XK_Up))
+        {
+            SHIP_POSITION.y += MOVEMENT_SPEED;
+        }
+        if (game::isKeyState(XK_down))
+        {
+            SHIP_POSITION.y -= MOVEMENT_SPEED;
+        }
+        if (game::isKeyState(XK_left))
+        {
+            SHIP_POSITION.x -= MOVEMENT_SPEED;
+        }
+        if (game::isKeyState(XK_right))
+        {
+            SHIP_POSITION.x += MOVEMENT_SPEED;
+        }
+
     }
 
     void Window::keyPressEvent(QKeyEvent *event)
@@ -107,6 +130,7 @@ namespace game {
         // add ECS, if needed
         //
         CLOCK.newFrame();
+        checkKeyState();
         this->repaint();
     }
 }

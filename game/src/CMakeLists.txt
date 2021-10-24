@@ -1,5 +1,6 @@
 add_executable(jumpy_game
     main.cpp
+    private/keyState.cpp
     private/window.cpp
 )
 

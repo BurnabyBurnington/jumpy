@@ -19,6 +19,8 @@ namespace game {
             GLuint vertexBufferId;  // A bind point for the OpenGL data
             QTimer timer;
 
+            void checkKeyState();
+
         // TODO : Check if I can make tis private
         // TODO : Rename this method later
         //
