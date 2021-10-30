@@ -12,14 +12,14 @@
 
 namespace {
     const float BASE_VELOCITY = 0.07f;
-    const engine::Vector2D VERTICES[] = {
+    const math::Vector2D VERTICES[] = {
         {-0.05f, +0.1f},
         {-0.1f, -0.1f},
         {+0.0f, -0.1f},
     };
     const unsigned int VERTICES_COUNT = sizeof(VERTICES) / sizeof(VERTICES[0]);
-    engine::Vector2D SHIP_POSITION {0, 0};
-    engine::Vector2D SHIP_VELOCITY {0, 0};
+    math::Vector2D SHIP_POSITION {0, 0};
+    math::Vector2D SHIP_VELOCITY {0, 0};
     engine::Clock CLOCK;
 }
 
@@ -92,7 +92,7 @@ namespace game {
         //
         glVertexAttribPointer(attributeIndex, 2, GL_FLOAT, GL_FALSE, 0, 0);
 
-        engine::Vector2D translatedVertices[VERTICES_COUNT];
+        math::Vector2D translatedVertices[VERTICES_COUNT];
 
         for (unsigned int index = 0; index < VERTICES_COUNT; ++index)
         {
