@@ -1,7 +1,7 @@
 #include <matrix2D.h>
 #include <vector2D.h>
 
-namespace engine
+namespace math
 {
     Vector2D operator*(Matrix2D const &left, Vector2D const &right)
     {

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace engine {
+namespace math {
     // TODO: Make this into a template, later
     // TODO: Const-ify everything
     class Vector2D

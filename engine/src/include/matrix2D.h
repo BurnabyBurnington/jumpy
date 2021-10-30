@@ -1,6 +1,6 @@
 #pragma once
 
-namespace engine
+namespace math
 {
     class Vector2D;
 

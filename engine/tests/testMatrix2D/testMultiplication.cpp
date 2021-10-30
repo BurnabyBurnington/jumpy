@@ -7,8 +7,8 @@
 // TODO: Add tests to ensure the + operator can be chained repeatedly
 
 CTEST(matrixMultiplication, vector) {
-    engine::Matrix2D matrix{2, -3, 4, -5};
-    engine::Vector2D vector{3, 9};
+    math::Matrix2D matrix{2, -3, 4, -5};
+    math::Vector2D vector{3, 9};
 
     auto result = matrix * vector;
 

@@ -6,7 +6,7 @@
 // TODO: Add tests to ensure the + operator can be chained repeatedly
 
 CTEST(additionConstOperators, scalar) {
-    auto const first = engine::Vector2D {10, 12};
+    auto const first = math::Vector2D {10, 12};
 
     auto const vector_1 = first + 2;
     ASSERT_EQUAL(12, vector_1.x);
@@ -18,8 +18,8 @@ CTEST(additionConstOperators, scalar) {
 }
 
 CTEST(additionConstOperators, vector) {
-    auto const first = engine::Vector2D {10, 12};
-    auto const second = engine::Vector2D {-2, 100};
+    auto const first = math::Vector2D {10, 12};
+    auto const second = math::Vector2D {-2, 100};
 
     auto const vector1 = first + second;
 
@@ -36,7 +36,7 @@ CTEST(additionConstOperators, vector) {
 // Double-check this. Do the same for multiplication, too
 //
 CTEST(additionOperators, test_scalar) {
-    auto first = engine::Vector2D {10, 12};
+    auto first = math::Vector2D {10, 12};
 
     auto vector_1 = first + 2;
     ASSERT_EQUAL(12, vector_1.x);
@@ -48,8 +48,8 @@ CTEST(additionOperators, test_scalar) {
 }
 
 CTEST(additionOperators, vector) {
-    auto first = engine::Vector2D {10, 12};
-    auto second = engine::Vector2D {-2, 100};
+    auto first = math::Vector2D {10, 12};
+    auto second = math::Vector2D {-2, 100};
 
     auto vector1 = first + second;
 

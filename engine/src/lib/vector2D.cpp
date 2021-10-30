@@ -1,6 +1,6 @@
 #include <vector2D.h>
 
-namespace engine {
+namespace math {
     Vector2D operator+(Vector2D const &left, Vector2D const &right)
     {
         return Vector2D {left.x + right.x, left.y + right.y};
