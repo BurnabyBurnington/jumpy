@@ -18,6 +18,11 @@ cmake .. -DCMAKE_INSTALL_PREFIX=$PWD/install
 cmake --build . --target install
 ```
 
+### To Run Tests
+```sh
+./tests/run_tests
+```
+
 
 SET CMAKE_PREFIX_PATH=C:\Qt_new\6.2.0\mingw81_64\lib\cmake
 SET CMAKE_PREFIX_PATH=C:\Qt\5.9\winrt_x64_msvc2017\lib\cmake
