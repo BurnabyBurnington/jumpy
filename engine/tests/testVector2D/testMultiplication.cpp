@@ -5,7 +5,7 @@
 // TODO: Add tests with a huge float value
 // TODO: Add tests to ensure the + operator can be chained repeatedly
 
-CTEST(multiplicationConstOperators, scalar) {
+CTEST(vectorMultiplicationConst, scalar) {
     auto const first = engine::Vector2D {10, 12};
 
     auto const vector_1 = first * 2;
@@ -17,7 +17,7 @@ CTEST(multiplicationConstOperators, scalar) {
     ASSERT_EQUAL(-24, vector_2.y);
 }
 
-CTEST(multiplicationConstOperators, vector) {
+CTEST(vectorMultiplicationConst, vector) {
     auto const first = engine::Vector2D {10, 12};
     auto const second = engine::Vector2D {-2, 100};
 
@@ -32,7 +32,7 @@ CTEST(multiplicationConstOperators, vector) {
     ASSERT_EQUAL(1200, vector2.y);
 }
 
-CTEST(multiplicationOperators, scalar) {
+CTEST(vectorMultiplication, scalar) {
     auto first = engine::Vector2D {10, 12};
 
     auto vector_1 = first * 2;
@@ -44,7 +44,7 @@ CTEST(multiplicationOperators, scalar) {
     ASSERT_EQUAL(-24, vector_2.y);
 }
 
-CTEST(multiplicationOperators, vector) {
+CTEST(vectorMultiplication, vector) {
     auto first = engine::Vector2D {10, 12};
     auto second = engine::Vector2D {-2, 100};
 
