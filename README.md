@@ -1,4 +1,6 @@
 ## TODO
+- Change the game to use fixed sim + variable frame rate
+
 - Make all warnings into errors
 - Add tests as a separate, optional build step
 - Add CI for the GitHub project
@@ -6,6 +8,17 @@
 - add travis.ci for CI
 - change warnings into errors (display all warnings)
 - read through this - https://github.com/lefticus/crategameengine/blob/master/game_loader/main.cpp
+- Figure out how to use Valgrind cachegrind for debugging
+ - https://austinmorlan.com/posts/entity_component_system/#the-system
+- Change the CMake projects so any change to engine will compile when
+  I run CMake on the game
+
+https://dopresskit.com/
+Youtube thumbnail ideas - https://imgur.com/a/mTV0mi9
+
+https://youtu.be/fdAOPHgW7qM?t=2484
+- Swept sphere vs rectangular solid test
+
 
 
 # 2D Vector Attempt
