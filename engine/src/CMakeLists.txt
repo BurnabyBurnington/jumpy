@@ -1,8 +1,9 @@
 # 1. Define the base engine
 add_library(jumpy_engine
     SHARED
-        lib/vector2D.cpp
         lib/clock.cpp
+        lib/matrix2D.cpp
+        lib/vector2D.cpp
 )
 
 target_include_directories(jumpy_engine

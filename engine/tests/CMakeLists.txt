@@ -1,6 +1,8 @@
 add_executable(run_tests
     testClock.cpp
     testMain.cpp
+    testMatrix2D/testMisc.cpp
+    testMatrix2D/testMultiplication.cpp
     testVector2D/testAddition.cpp
     testVector2D/testMisc.cpp
     testVector2D/testMultiplication.cpp
