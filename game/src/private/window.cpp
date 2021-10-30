@@ -12,7 +12,7 @@
 
 namespace {
     const float BASE_VELOCITY = 0.07f;
-    engine::Vector2D VERTICES[] = {
+    const engine::Vector2D VERTICES[] = {
         {-0.05f, +0.1f},
         {-0.1f, -0.1f},
         {+0.0f, -0.1f},
