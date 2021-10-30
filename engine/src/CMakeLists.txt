@@ -17,12 +17,8 @@ install(
     TARGETS jumpy_engine
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
-install(
-    DIRECTORY
-        include
-    DESTINATION
-        .
-)
+file(GLOB include_files "include/*.h")
+install(FILES ${include_files} DESTINATION include)
 
 # 3. Export the engine so games can use it
 include(cmake/export_all.cmake)
