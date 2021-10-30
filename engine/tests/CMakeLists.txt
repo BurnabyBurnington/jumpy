@@ -1,12 +1,12 @@
 add_executable(run_tests
-    testClock.cpp
-    testMain.cpp
-    testMatrix2D/testMisc.cpp
-    testMatrix2D/testMultiplication.cpp
-    testVector2D/testAddition.cpp
-    testVector2D/testMisc.cpp
-    testVector2D/testMultiplication.cpp
-    testVector2D/testPlusEqual.cpp
+    clock.cpp
+    main.cpp
+    matrix2D/misc.cpp
+    matrix2D/multiplication.cpp
+    vector2D/addition.cpp
+    vector2D/misc.cpp
+    vector2D/multiplication.cpp
+    vector2D/plusEqual.cpp
 )
 target_compile_features(run_tests PRIVATE cxx_std_17)
 target_link_libraries(run_tests
