@@ -6,8 +6,11 @@
 #include <QtGui/QKeyEvent>
 
 #include <clock.h>
+#include <matrix2D.h>
+#include <radian.h>
 #include <vector2D.h>
-#include <keyState.h>
+
+#include "keyState.h"
 #include "window.h"
 
 namespace {
@@ -20,6 +23,7 @@ namespace {
     const unsigned int VERTICES_COUNT = sizeof(VERTICES) / sizeof(VERTICES[0]);
     math::Vector2D SHIP_POSITION {0, 0};
     math::Vector2D SHIP_VELOCITY {0, 0};
+    float SHIP_ORIENTATION {0.0};
     engine::Clock CLOCK;
 }
 
@@ -46,13 +50,25 @@ namespace game {
         this->timer.start(0);
     }
 
+    void Window::rotateShip(float scalar)
+    {
+        auto const acceleration = BASE_VELOCITY * scalar;
+        auto const angular_movement = 0.1f;
+
+        if (game::isKeyState(game::Direction::right))
+        {
+            SHIP_ORIENTATION -= angular_movement;
+        }
+        if (game::isKeyState(game::Direction::left))
+        {
+            SHIP_ORIENTATION += angular_movement;
+        }
+    }
+
     void Window::updateVelocity(float scalar)
     {
-        auto acceleration = BASE_VELOCITY * scalar;
-        // TODO: Is there a way to now repeatedly query the display? Double-check this
-        // Change this to be vector-based?
-        // TODO: Might be template-able?
-        //
+        auto const acceleration = BASE_VELOCITY * scalar;
+
         if (game::isKeyState(game::Direction::up))
         {
             SHIP_VELOCITY.y += acceleration;
@@ -60,14 +76,6 @@ namespace game {
         if (game::isKeyState(game::Direction::down))
         {
             SHIP_VELOCITY.y -= acceleration;
-        }
-        if (game::isKeyState(game::Direction::left))
-        {
-            SHIP_VELOCITY.x -= acceleration;
-        }
-        if (game::isKeyState(game::Direction::right))
-        {
-            SHIP_VELOCITY.x += acceleration;
         }
 
     }
@@ -92,18 +100,19 @@ namespace game {
         //
         glVertexAttribPointer(attributeIndex, 2, GL_FLOAT, GL_FALSE, 0, 0);
 
-        math::Vector2D translatedVertices[VERTICES_COUNT];
+        math::Vector2D transformedVertices[VERTICES_COUNT];
+        auto transform = math::Matrix2D::rotate(math::Radian{SHIP_ORIENTATION});
 
         for (unsigned int index = 0; index < VERTICES_COUNT; ++index)
         {
-            translatedVertices[index] = VERTICES[index] + SHIP_POSITION;
+            transformedVertices[index] = transform * VERTICES[index];
         }
 
         glBufferSubData(
             GL_ARRAY_BUFFER,
             0,
-            sizeof(translatedVertices),
-            translatedVertices
+            sizeof(transformedVertices),
+            transformedVertices
         );
         glDrawArrays(GL_TRIANGLES, 0, VERTICES_COUNT);
     }
@@ -114,8 +123,9 @@ namespace game {
         // add ECS, if needed
         //
         CLOCK.newFrame();
-        auto scalar = CLOCK.timeSinceLastFrame();
+        auto const scalar = CLOCK.timeSinceLastFrame();
 
+        this->rotateShip(scalar);
         this->updateVelocity(scalar);
         SHIP_POSITION += SHIP_VELOCITY;
 

@@ -8,6 +8,10 @@ namespace {
 }
 
 namespace game {
+    // TODO: Is there a way to now repeatedly query the display? Double-check this
+    // Change this to be vector-based?
+    // TODO: Might be template-able?
+    //
     bool isKeyState(Direction const &direction)
     {
         char keyContent[32];

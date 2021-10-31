@@ -19,6 +19,7 @@ namespace game {
             QTimer timer;
 
             void updateVelocity(float scalar);
+            void rotateShip(float scalar);
 
         // TODO : Check if I can make tis private
         // TODO : Rename this method later
