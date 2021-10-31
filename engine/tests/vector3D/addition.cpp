@@ -9,14 +9,14 @@ CTEST(additionConstOperators, scalar) {
     auto const first = math::Vector3D {10, 12, -32};
 
     auto const vector1 = first + 2;
-    ASSERT_EQUAL(12, vector1.x);
-    ASSERT_EQUAL(14, vector1.y);
-    ASSERT_EQUAL(-30, vector1.z);
+    ASSERT_FLOAT_EQUAL(12, vector1.x);
+    ASSERT_FLOAT_EQUAL(14, vector1.y);
+    ASSERT_FLOAT_EQUAL(-30, vector1.z);
 
     auto const vector2 = first + -20;
-    ASSERT_EQUAL(-10, vector2.x);
-    ASSERT_EQUAL(-8, vector2.y);
-    ASSERT_EQUAL(-52, vector2.z);
+    ASSERT_FLOAT_EQUAL(-10, vector2.x);
+    ASSERT_FLOAT_EQUAL(-8, vector2.y);
+    ASSERT_FLOAT_EQUAL(-52, vector2.z);
 }
 
 CTEST(additionConstOperators, vector) {
@@ -25,15 +25,15 @@ CTEST(additionConstOperators, vector) {
 
     auto const vector1 = first + second;
 
-    ASSERT_EQUAL(8, vector1.x);
-    ASSERT_EQUAL(112, vector1.y);
-    ASSERT_EQUAL(-331, vector1.z);
+    ASSERT_FLOAT_EQUAL(8, vector1.x);
+    ASSERT_FLOAT_EQUAL(112, vector1.y);
+    ASSERT_FLOAT_EQUAL(-331, vector1.z);
 
     auto const vector2 = second + first;
 
-    ASSERT_EQUAL(8, vector2.x);
-    ASSERT_EQUAL(112, vector2.y);
-    ASSERT_EQUAL(-331, vector2.z);
+    ASSERT_FLOAT_EQUAL(8, vector2.x);
+    ASSERT_FLOAT_EQUAL(112, vector2.y);
+    ASSERT_FLOAT_EQUAL(-331, vector2.z);
 }
 
 // TODO: Is reflexive addition possible in C++ if the types differ?
@@ -43,14 +43,14 @@ CTEST(additionOperators, scalar) {
     auto first = math::Vector3D {10, 12, -32};
 
     auto vector1 = first + 2;
-    ASSERT_EQUAL(12, vector1.x);
-    ASSERT_EQUAL(14, vector1.y);
-    ASSERT_EQUAL(-30, vector1.z);
+    ASSERT_FLOAT_EQUAL(12, vector1.x);
+    ASSERT_FLOAT_EQUAL(14, vector1.y);
+    ASSERT_FLOAT_EQUAL(-30, vector1.z);
 
     auto vector2 = first + -20;
-    ASSERT_EQUAL(-10, vector2.x);
-    ASSERT_EQUAL(-8, vector2.y);
-    ASSERT_EQUAL(-52, vector2.z);
+    ASSERT_FLOAT_EQUAL(-10, vector2.x);
+    ASSERT_FLOAT_EQUAL(-8, vector2.y);
+    ASSERT_FLOAT_EQUAL(-52, vector2.z);
 }
 
 CTEST(additionOperators, vector) {
@@ -59,13 +59,13 @@ CTEST(additionOperators, vector) {
 
     auto vector1 = first + second;
 
-    ASSERT_EQUAL(8, vector1.x);
-    ASSERT_EQUAL(112, vector1.y);
-    ASSERT_EQUAL(-331, vector1.z);
+    ASSERT_FLOAT_EQUAL(8, vector1.x);
+    ASSERT_FLOAT_EQUAL(112, vector1.y);
+    ASSERT_FLOAT_EQUAL(-331, vector1.z);
 
     auto vector2 = second + first;
 
-    ASSERT_EQUAL(8, vector2.x);
-    ASSERT_EQUAL(112, vector2.y);
-    ASSERT_EQUAL(-331, vector2.z);
+    ASSERT_FLOAT_EQUAL(8, vector2.x);
+    ASSERT_FLOAT_EQUAL(112, vector2.y);
+    ASSERT_FLOAT_EQUAL(-331, vector2.z);
 }
