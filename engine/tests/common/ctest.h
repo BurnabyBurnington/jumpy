@@ -26,8 +26,11 @@ extern "C" {
 #define CTEST_IMPL_FORMAT_PRINTF(a, b)
 #endif
 
+#include <cmath> /* fabs */
 #include <inttypes.h> /* intmax_t, uintmax_t, PRI* */
 #include <stddef.h> /* size_t */
+
+const float EPSILON {0.00001};  // A totally arbitrarily small number
 
 typedef void (*ctest_nullary_run_func)(void);
 typedef void (*ctest_unary_run_func)(void*);
@@ -190,6 +193,9 @@ void assert_equal(intmax_t exp, intmax_t real, const char* caller, int line);
 
 void assert_equal_u(uintmax_t exp, uintmax_t real, const char* caller, int line);
 #define ASSERT_EQUAL_U(exp, real) assert_equal_u(exp, real, __FILE__, __LINE__)
+
+void assert_float_equal(float exp, float real, const char* caller, int line);
+#define ASSERT_FLOAT_EQUAL(exp, real) assert_float_equal(exp, real, __FILE__, __LINE__)
 
 void assert_not_equal(intmax_t exp, intmax_t real, const char* caller, int line);
 #define ASSERT_NOT_EQUAL(exp, real) assert_not_equal(exp, real, __FILE__, __LINE__)
@@ -360,6 +366,13 @@ void assert_data(const unsigned char* exp, size_t expsize,
             CTEST_ERR("%s:%d expected 0x%02x at offset %" PRIuMAX " got 0x%02x",
                 caller, line, exp[i], (uintmax_t) i, real[i]);
         }
+    }
+}
+
+void assert_float_equal(float exp, float real, const char* caller, int line) {
+    // Reference: https://stackoverflow.com/a/17341
+    if (fabs(exp - real) >= EPSILON) {
+        CTEST_ERR("%s:%d  expected %f, got %f", caller, line, exp, real);
     }
 }
 
