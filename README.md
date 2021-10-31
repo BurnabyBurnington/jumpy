@@ -1,6 +1,8 @@
 ## TODO
 - Change the game to use fixed sim + variable frame rate
 
+- Change all variables to east const
+
 - Make all warnings into errors
 - Add tests as a separate, optional build step
 - Add CI for the GitHub project
