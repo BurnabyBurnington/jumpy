@@ -1,3 +1,4 @@
+#include <algorithm>  // std::min
 #include <cassert>
 
 #include <GL/glew.h>
@@ -14,12 +15,13 @@
 #include "window.h"
 
 namespace {
-    const float BASE_VELOCITY = 0.07f;
+    auto const BASE_VELOCITY = 0.07f;
     const math::Vector2D VERTICES[] = {
         {-0.05f, +0.1f},
         {-0.1f, -0.1f},
         {+0.0f, -0.1f},
     };
+    auto const ANGULAR_MOVEMENT = 0.1f;
     const unsigned int VERTICES_COUNT = sizeof(VERTICES) / sizeof(VERTICES[0]);
     math::Vector2D SHIP_POSITION {0, 0};
     math::Vector2D SHIP_VELOCITY {0, 0};
@@ -52,16 +54,13 @@ namespace game {
 
     void Window::rotateShip(float scalar)
     {
-        auto const acceleration = BASE_VELOCITY * scalar;
-        auto const angular_movement = 0.1f;
-
         if (game::isKeyState(game::Direction::right))
         {
-            SHIP_ORIENTATION -= angular_movement;
+            SHIP_ORIENTATION -= ANGULAR_MOVEMENT * scalar;
         }
         if (game::isKeyState(game::Direction::left))
         {
-            SHIP_ORIENTATION += angular_movement;
+            SHIP_ORIENTATION += ANGULAR_MOVEMENT * scalar;
         }
     }
 

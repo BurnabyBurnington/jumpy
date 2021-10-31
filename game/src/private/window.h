@@ -27,4 +27,4 @@ namespace game {
         public slots:
             void myUpdate();
     };
-};
+}
