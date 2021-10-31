@@ -1,4 +1,6 @@
 ## TODO
+- Make the reflexivity methods of Vector{2,3}D and other classes call the OTHER method, instead of redefine the same information
+
 - Rename test suite names to be more specific (e.g. "vector2DMultiplication" instead of "vectorMultiplication")
 - Change unittesting to instead be assert-based (so we can have more
   than one test in a single executable)

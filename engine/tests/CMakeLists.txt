@@ -1,6 +1,9 @@
 add_executable(run_tests
     clock.cpp
     main.cpp
+    matrix3D/misc.cpp
+    matrix3D/multiplication.cpp
+    matrix3D/rotate.cpp
     matrix2D/misc.cpp
     matrix2D/multiplication.cpp
     matrix2D/rotate.cpp

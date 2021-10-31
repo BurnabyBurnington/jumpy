@@ -21,9 +21,9 @@ namespace math
     Vector3D operator*(Matrix3D const &left, Vector3D const &right)
     {
         return {
-            left.r0c0 * right.x + left.r0c1 * right.y + left.r0c2 * right.z,
-            left.r1c0 * right.x + left.r1c1 * right.y + left.r1c2 * right.z,
-            left.r2c0 * right.x + left.r2c1 * right.y + left.r2c2 * right.z
+            (left.r0c0 * right.x) + (left.r0c1 * right.y) + (left.r0c2 * right.z),
+            (left.r1c0 * right.x) + (left.r1c1 * right.y) + (left.r1c2 * right.z),
+            (left.r2c0 * right.x) + (left.r2c1 * right.y) + (left.r2c2 * right.z)
         };
     }
 }
