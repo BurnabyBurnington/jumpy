@@ -8,13 +8,13 @@
 CTEST(vectorMultiplicationConst, scalar) {
     auto const first = math::Vector2D {10, 12};
 
-    auto const vector_1 = first * 2;
-    ASSERT_EQUAL(20, vector_1.x);
-    ASSERT_EQUAL(24, vector_1.y);
+    auto const vector1 = first * 2;
+    ASSERT_EQUAL(20, vector1.x);
+    ASSERT_EQUAL(24, vector1.y);
 
-    auto const vector_2 = first * -2;
-    ASSERT_EQUAL(-20, vector_2.x);
-    ASSERT_EQUAL(-24, vector_2.y);
+    auto const vector2 = first * -2;
+    ASSERT_EQUAL(-20, vector2.x);
+    ASSERT_EQUAL(-24, vector2.y);
 }
 
 CTEST(vectorMultiplicationConst, vector) {
@@ -35,13 +35,13 @@ CTEST(vectorMultiplicationConst, vector) {
 CTEST(vectorMultiplication, scalar) {
     auto first = math::Vector2D {10, 12};
 
-    auto vector_1 = first * 2;
-    ASSERT_EQUAL(20, vector_1.x);
-    ASSERT_EQUAL(24, vector_1.y);
+    auto vector1 = first * 2;
+    ASSERT_EQUAL(20, vector1.x);
+    ASSERT_EQUAL(24, vector1.y);
 
-    auto vector_2 = first * -2;
-    ASSERT_EQUAL(-20, vector_2.x);
-    ASSERT_EQUAL(-24, vector_2.y);
+    auto vector2 = first * -2;
+    ASSERT_EQUAL(-20, vector2.x);
+    ASSERT_EQUAL(-24, vector2.y);
 }
 
 CTEST(vectorMultiplication, vector) {

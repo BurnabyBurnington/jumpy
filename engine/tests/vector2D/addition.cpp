@@ -8,13 +8,13 @@
 CTEST(additionConstOperators, scalar) {
     auto const first = math::Vector2D {10, 12};
 
-    auto const vector_1 = first + 2;
-    ASSERT_EQUAL(12, vector_1.x);
-    ASSERT_EQUAL(14, vector_1.y);
+    auto const vector1 = first + 2;
+    ASSERT_EQUAL(12, vector1.x);
+    ASSERT_EQUAL(14, vector1.y);
 
-    auto const vector_2 = first + -20;
-    ASSERT_EQUAL(-10, vector_2.x);
-    ASSERT_EQUAL(-8, vector_2.y);
+    auto const vector2 = first + -20;
+    ASSERT_EQUAL(-10, vector2.x);
+    ASSERT_EQUAL(-8, vector2.y);
 }
 
 CTEST(additionConstOperators, vector) {
@@ -38,13 +38,13 @@ CTEST(additionConstOperators, vector) {
 CTEST(additionOperators, test_scalar) {
     auto first = math::Vector2D {10, 12};
 
-    auto vector_1 = first + 2;
-    ASSERT_EQUAL(12, vector_1.x);
-    ASSERT_EQUAL(14, vector_1.y);
+    auto vector1 = first + 2;
+    ASSERT_EQUAL(12, vector1.x);
+    ASSERT_EQUAL(14, vector1.y);
 
-    auto vector_2 = first + -20;
-    ASSERT_EQUAL(-10, vector_2.x);
-    ASSERT_EQUAL(-8, vector_2.y);
+    auto vector2 = first + -20;
+    ASSERT_EQUAL(-10, vector2.x);
+    ASSERT_EQUAL(-8, vector2.y);
 }
 
 CTEST(additionOperators, vector) {

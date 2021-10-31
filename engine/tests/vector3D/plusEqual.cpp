@@ -9,17 +9,17 @@
 // Double-check this. Do the same for multiplication, too
 //
 CTEST(plusEqualOperators, scalar) {
-    auto vector_1 = math::Vector3D {10, 12, -134};
-    vector_1 += 2;
-    ASSERT_EQUAL(12, vector_1.x);
-    ASSERT_EQUAL(14, vector_1.y);
-    ASSERT_EQUAL(-132, vector_1.z);
+    auto vector1 = math::Vector3D {10, 12, -134};
+    vector1 += 2;
+    ASSERT_EQUAL(12, vector1.x);
+    ASSERT_EQUAL(14, vector1.y);
+    ASSERT_EQUAL(-132, vector1.z);
 
-    auto vector_2 = math::Vector3D {10, 12, -231};
-    vector_2 += -20;
-    ASSERT_EQUAL(-10, vector_2.x);
-    ASSERT_EQUAL(-8, vector_2.y);
-    ASSERT_EQUAL(-251, vector_2.z);
+    auto vector2 = math::Vector3D {10, 12, -231};
+    vector2 += -20;
+    ASSERT_EQUAL(-10, vector2.x);
+    ASSERT_EQUAL(-8, vector2.y);
+    ASSERT_EQUAL(-251, vector2.z);
 }
 
 CTEST(plusEqualOperators, vector) {

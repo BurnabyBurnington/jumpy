@@ -8,15 +8,15 @@
 CTEST(additionConstOperators, scalar) {
     auto const first = math::Vector3D {10, 12, -32};
 
-    auto const vector_1 = first + 2;
-    ASSERT_EQUAL(12, vector_1.x);
-    ASSERT_EQUAL(14, vector_1.y);
-    ASSERT_EQUAL(-30, vector_1.z);
+    auto const vector1 = first + 2;
+    ASSERT_EQUAL(12, vector1.x);
+    ASSERT_EQUAL(14, vector1.y);
+    ASSERT_EQUAL(-30, vector1.z);
 
-    auto const vector_2 = first + -20;
-    ASSERT_EQUAL(-10, vector_2.x);
-    ASSERT_EQUAL(-8, vector_2.y);
-    ASSERT_EQUAL(-52, vector_2.z);
+    auto const vector2 = first + -20;
+    ASSERT_EQUAL(-10, vector2.x);
+    ASSERT_EQUAL(-8, vector2.y);
+    ASSERT_EQUAL(-52, vector2.z);
 }
 
 CTEST(additionConstOperators, vector) {
@@ -42,15 +42,15 @@ CTEST(additionConstOperators, vector) {
 CTEST(additionOperators, scalar) {
     auto first = math::Vector3D {10, 12, -32};
 
-    auto vector_1 = first + 2;
-    ASSERT_EQUAL(12, vector_1.x);
-    ASSERT_EQUAL(14, vector_1.y);
-    ASSERT_EQUAL(-30, vector_1.z);
+    auto vector1 = first + 2;
+    ASSERT_EQUAL(12, vector1.x);
+    ASSERT_EQUAL(14, vector1.y);
+    ASSERT_EQUAL(-30, vector1.z);
 
-    auto vector_2 = first + -20;
-    ASSERT_EQUAL(-10, vector_2.x);
-    ASSERT_EQUAL(-8, vector_2.y);
-    ASSERT_EQUAL(-52, vector_2.z);
+    auto vector2 = first + -20;
+    ASSERT_EQUAL(-10, vector2.x);
+    ASSERT_EQUAL(-8, vector2.y);
+    ASSERT_EQUAL(-52, vector2.z);
 }
 
 CTEST(additionOperators, vector) {

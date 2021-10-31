@@ -9,15 +9,15 @@
 // Double-check this. Do the same for multiplication, too
 //
 CTEST(plusEqualOperators, scalar) {
-    auto vector_1 = math::Vector2D {10, 12};
-    vector_1 += 2;
-    ASSERT_EQUAL(12, vector_1.x);
-    ASSERT_EQUAL(14, vector_1.y);
+    auto vector1 = math::Vector2D {10, 12};
+    vector1 += 2;
+    ASSERT_EQUAL(12, vector1.x);
+    ASSERT_EQUAL(14, vector1.y);
 
-    auto vector_2 = math::Vector2D {10, 12};
-    vector_2 += -20;
-    ASSERT_EQUAL(-10, vector_2.x);
-    ASSERT_EQUAL(-8, vector_2.y);
+    auto vector2 = math::Vector2D {10, 12};
+    vector2 += -20;
+    ASSERT_EQUAL(-10, vector2.x);
+    ASSERT_EQUAL(-8, vector2.y);
 }
 
 CTEST(plusEqualOperators, vector) {
