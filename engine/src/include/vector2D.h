@@ -38,6 +38,22 @@ namespace math {
                 return *this;
             }
 
+            Vector2D& operator-=(Vector2D const &right)
+            {
+                // TODO: Maybe I can somehow reuse operator+ or vice versa?
+                this->x -= right.x;
+                this->y -= right.y;
+
+                return *this;
+            }
+
+            Vector2D& operator-=(float scalar)
+            {
+                this->x -= scalar;
+                this->y -= scalar;
+
+                return *this;
+            }
     };
 
     // template<class T>

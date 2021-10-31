@@ -8,6 +8,10 @@ add_executable(run_tests
     vector2D/misc.cpp
     vector2D/multiplication.cpp
     vector2D/plusEqual.cpp
+    vector3D/addition.cpp
+    vector3D/misc.cpp
+    vector3D/multiplication.cpp
+    vector3D/plusEqual.cpp
 )
 target_compile_features(run_tests PRIVATE cxx_std_17)
 target_link_libraries(run_tests

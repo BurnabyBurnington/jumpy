@@ -3,8 +3,10 @@ add_library(jumpy_engine
     SHARED
         lib/clock.cpp
         lib/matrix2D.cpp
+        lib/matrix3D.cpp
         lib/radian.cpp
         lib/vector2D.cpp
+        lib/vector3D.cpp
 )
 
 # TODO: Add this back in, once I get Windows support
