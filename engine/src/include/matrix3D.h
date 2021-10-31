@@ -27,7 +27,7 @@ namespace math
 
             ~Matrix3D() = default;
 
-            static Matrix3D rotate_z(Radian const &angle);
+            static Matrix3D rotateZ(Radian const &angle);
 
             friend Vector3D operator*(Matrix3D const &left, Vector3D const &right);
 

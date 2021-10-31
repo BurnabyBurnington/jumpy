@@ -6,7 +6,7 @@
 
 namespace math
 {
-    Matrix3D Matrix3D::rotate_z(Radian const &angle) {
+    Matrix3D Matrix3D::rotateZ(Radian const &angle) {
         auto value = angle.get();
         auto cos = std::cos(value);
         auto sin = std::sin(value);
