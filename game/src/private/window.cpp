@@ -111,7 +111,7 @@ namespace game {
         // We now need to describe the attribute and data to OpenGL. We say
         // that the attribute is a float.
         //
-        glVertexAttribPointer(attributeIndex, 2, GL_FLOAT, GL_FALSE, 0, 0);
+        glVertexAttribPointer(attributeIndex, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
         math::Vector3D transformedVertices[VERTICES_COUNT];
         auto const transform = math::Matrix3D::rotateZ(math::Radian{SHIP_ORIENTATION});
