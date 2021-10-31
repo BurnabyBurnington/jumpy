@@ -2,6 +2,7 @@
 
 #include <initializer_list>
 
+// TODO: Consider adding const for everything
 namespace math
 {
     class Radian
@@ -9,7 +10,9 @@ namespace math
         public:
             explicit Radian(): value(0) {};
             explicit Radian(float value): value(value) {};
-            Radian(std::initializer_list<float> list): value(*list.begin()) {};
+
+            float get() const { return this->value; };
+            float get() { return this->value; };
 
         private:
             float value;
