@@ -10,4 +10,9 @@ namespace math
             left.r1c0 * right.x + left.r1c1 * right.y
         };
     }
+
+
+    Matrix2D Matrix2D::rotate(Radian const &angle) {
+        return Matrix2D{};
+    }
 }

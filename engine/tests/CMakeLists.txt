@@ -3,6 +3,7 @@ add_executable(run_tests
     main.cpp
     matrix2D/misc.cpp
     matrix2D/multiplication.cpp
+    matrix2D/rotate.cpp
     vector2D/addition.cpp
     vector2D/misc.cpp
     vector2D/multiplication.cpp

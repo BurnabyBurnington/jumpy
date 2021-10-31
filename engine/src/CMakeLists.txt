@@ -3,6 +3,7 @@ add_library(jumpy_engine
     SHARED
         lib/clock.cpp
         lib/matrix2D.cpp
+        lib/radian.cpp
         lib/vector2D.cpp
 )
 
