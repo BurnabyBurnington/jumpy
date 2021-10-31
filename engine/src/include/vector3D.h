@@ -15,10 +15,12 @@ namespace math {
             float z;
 
             // TODO: Make these inline?
-            friend Vector3D operator+(Vector3D const &left, Vector3D const &right);
-            friend Vector3D operator+(Vector3D const &left, float scalar);
             friend Vector3D operator*(Vector3D const &left, Vector3D const &right);
             friend Vector3D operator*(Vector3D const &left, float scalar);
+            friend Vector3D operator*(float scalar, Vector3D const &right);
+            friend Vector3D operator+(Vector3D const &left, Vector3D const &right);
+            friend Vector3D operator+(Vector3D const &left, float scalar);
+            friend Vector3D operator+(float scalar, Vector3D const &right);
 
             Vector3D& operator+=(Vector3D const &right)
             {

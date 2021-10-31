@@ -13,6 +13,11 @@ namespace math {
         return Vector3D {left.x + scalar, left.y + scalar, left.z + scalar};
     }
 
+    Vector3D operator+(float scalar, Vector3D const &right)
+    {
+        return Vector3D {right.x + scalar, right.y + scalar, right.z + scalar};
+    }
+
     // TODO: Is reflexive addition possible in C++ if the types differ?
     // Double-check this. Do the same for multiplication, too
     //
@@ -27,5 +32,9 @@ namespace math {
     {
         return Vector3D {left.x * scalar, left.y * scalar, left.z * scalar};
     }
-}
 
+    Vector3D operator*(float scalar, Vector3D const &right)
+    {
+        return Vector3D {right.x * scalar, right.y * scalar, right.z * scalar};
+    }
+}
