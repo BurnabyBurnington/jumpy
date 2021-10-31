@@ -8,9 +8,10 @@
 #include <QtGui/QKeyEvent>
 
 #include <clock.h>
-#include <matrix2D.h>
+#include <matrix3D.h>
 #include <radian.h>
 #include <vector2D.h>
+#include <vector3D.h>
 
 #include "keyState.h"
 #include "window.h"
@@ -18,15 +19,15 @@
 namespace {
     auto const BASE_VELOCITY = 0.07f;
     auto const SQUARE_ROOT_ZERO_POINT_ZERO_TWO {0.141421356f};
-    const math::Vector2D VERTICES[] = {
-        {-0.0f, SQUARE_ROOT_ZERO_POINT_ZERO_TWO},
-        {-0.1f, -0.1f},
-        {+0.1f, -0.1f},
+    const math::Vector3D VERTICES[] = {
+        {-0.0f, SQUARE_ROOT_ZERO_POINT_ZERO_TWO, 0},
+        {-0.1f, -0.1f, 0},
+        {+0.1f, -0.1f, 0},
     };
     auto const ANGULAR_MOVEMENT = 10.0f;
     const unsigned int VERTICES_COUNT = sizeof(VERTICES) / sizeof(VERTICES[0]);
-    math::Vector2D SHIP_POSITION {0, 0};
-    math::Vector2D SHIP_VELOCITY {0, 0};
+    math::Vector3D SHIP_POSITION {0, 0, 0};
+    math::Vector3D SHIP_VELOCITY {0, 0, 0};
     float SHIP_ORIENTATION {0.0};
     engine::Clock CLOCK;
 }
@@ -70,9 +71,10 @@ namespace game {
     {
         auto const acceleration = BASE_VELOCITY * scalar;
 
-        math::Vector2D const direction {
+        math::Vector3D const direction {
             -1 * std::sin(SHIP_ORIENTATION),
-            std::cos(SHIP_ORIENTATION)
+            std::cos(SHIP_ORIENTATION),
+            0,
         };
 
         if (game::isKeyState(game::Direction::up))
@@ -111,8 +113,8 @@ namespace game {
         //
         glVertexAttribPointer(attributeIndex, 2, GL_FLOAT, GL_FALSE, 0, 0);
 
-        math::Vector2D transformedVertices[VERTICES_COUNT];
-        auto const transform = math::Matrix2D::rotate(math::Radian{SHIP_ORIENTATION});
+        math::Vector3D transformedVertices[VERTICES_COUNT];
+        auto const transform = math::Matrix3D::rotateZ(math::Radian{SHIP_ORIENTATION});
 
         for (unsigned int index = 0; index < VERTICES_COUNT; ++index)
         {
