@@ -1,4 +1,6 @@
 ## TODO
+- Remove Matrix2D / Vector2D if able
+ - If not, consider consolidating
 - Change the game to use fixed sim + variable frame rate
 
 - Change all variables to east const
