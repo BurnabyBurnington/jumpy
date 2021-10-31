@@ -83,7 +83,12 @@ namespace game {
     {
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glViewport(0, 0, this->width(), this->height());
+        auto minimum = std::min(this->width(), this->height());
+        math::Vector2D viewport {
+            (this->width() / 2.0f) - (minimum / 2.0f),
+            (this->height() / 2.0f) - (minimum / 2.0f)
+        };
+        glViewport(viewport.x, viewport.y, minimum, minimum);
 
         // To get OpenGL to send the data to RAM into the processing
         // pipeline, you have to tell OpenGL to enable that attribute
