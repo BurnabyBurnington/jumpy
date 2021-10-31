@@ -1,4 +1,5 @@
 ## TODO
+- Rename test suite names to be more specific (e.g. "vector2DMultiplication" instead of "vectorMultiplication")
 - Change unittesting to instead be assert-based (so we can have more
   than one test in a single executable)
 - Check if methods can use symbols, like +=
