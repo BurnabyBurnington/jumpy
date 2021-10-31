@@ -16,12 +16,13 @@
 
 namespace {
     auto const BASE_VELOCITY = 0.07f;
+    auto const SQUARE_ROOT_ZERO_POINT_ZERO_TWO {0.141421356f};
     const math::Vector2D VERTICES[] = {
-        {-0.05f, +0.1f},
+        {-0.0f, SQUARE_ROOT_ZERO_POINT_ZERO_TWO},
         {-0.1f, -0.1f},
-        {+0.0f, -0.1f},
+        {+0.1f, -0.1f},
     };
-    auto const ANGULAR_MOVEMENT = 0.1f;
+    auto const ANGULAR_MOVEMENT = 10.0f;
     const unsigned int VERTICES_COUNT = sizeof(VERTICES) / sizeof(VERTICES[0]);
     math::Vector2D SHIP_POSITION {0, 0};
     math::Vector2D SHIP_VELOCITY {0, 0};
