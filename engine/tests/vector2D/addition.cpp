@@ -35,7 +35,7 @@ CTEST(additionConstOperators, vector) {
 // TODO: Is reflexive addition possible in C++ if the types differ?
 // Double-check this. Do the same for multiplication, too
 //
-CTEST(additionOperators, test_scalar) {
+CTEST(additionOperators, scalar) {
     auto first = math::Vector2D {10, 12};
 
     auto vector1 = first + 2;
