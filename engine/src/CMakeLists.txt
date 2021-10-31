@@ -7,6 +7,15 @@ add_library(jumpy_engine
         lib/vector2D.cpp
 )
 
+# TODO: Add this back in, once I get Windows support
+# if(MSVC)
+#     target_compile_options(jumpy_engine PRIVATE /W4 /WX)
+# else()
+#     target_compile_options(jumpy_engine PRIVATE -Wall -Wextra -Wpedantic -Werror)
+# endif()
+#
+target_compile_options(jumpy_engine PRIVATE -Wall -Wextra -Wpedantic -Werror)
+
 target_include_directories(jumpy_engine
     PRIVATE
         include
