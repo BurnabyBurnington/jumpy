@@ -1,3 +1,4 @@
+#include <cmath>  // std::cos, std::sin
 #include <algorithm>  // std::min
 #include <cassert>
 
@@ -69,13 +70,18 @@ namespace game {
     {
         auto const acceleration = BASE_VELOCITY * scalar;
 
+        math::Vector2D const direction {
+            -1 * std::sin(SHIP_ORIENTATION),
+            std::cos(SHIP_ORIENTATION)
+        };
+
         if (game::isKeyState(game::Direction::up))
         {
-            SHIP_VELOCITY.y += acceleration;
+            SHIP_VELOCITY += direction * acceleration;
         }
         if (game::isKeyState(game::Direction::down))
         {
-            SHIP_VELOCITY.y -= acceleration;
+            SHIP_VELOCITY -= direction * acceleration;
         }
 
     }
