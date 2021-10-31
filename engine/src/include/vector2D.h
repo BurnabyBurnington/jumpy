@@ -64,4 +64,3 @@ namespace math {
     //     return Vector2D {left.x * right.x, left.y * right.y};
     // }
 }
-
