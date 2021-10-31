@@ -84,7 +84,7 @@ namespace game {
     {
         glClear(GL_COLOR_BUFFER_BIT);
 
-        auto minimum = std::min(this->width(), this->height());
+        auto const minimum = std::min(this->width(), this->height());
         math::Vector2D viewport {
             (this->width() / 2.0f) - (minimum / 2.0f),
             (this->height() / 2.0f) - (minimum / 2.0f)
@@ -106,11 +106,11 @@ namespace game {
         glVertexAttribPointer(attributeIndex, 2, GL_FLOAT, GL_FALSE, 0, 0);
 
         math::Vector2D transformedVertices[VERTICES_COUNT];
-        auto transform = math::Matrix2D::rotate(math::Radian{SHIP_ORIENTATION});
+        auto const transform = math::Matrix2D::rotate(math::Radian{SHIP_ORIENTATION});
 
         for (unsigned int index = 0; index < VERTICES_COUNT; ++index)
         {
-            transformedVertices[index] = transform * VERTICES[index];
+            transformedVertices[index] = SHIP_POSITION + (transform * VERTICES[index]);
         }
 
         glBufferSubData(
