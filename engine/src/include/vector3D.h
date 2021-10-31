@@ -10,6 +10,8 @@ namespace math {
             Vector3D(float x, float y, float z) : x(x), y(y), z(z) {};
             ~Vector3D() = default;
 
+            static unsigned int const size = 3;
+
             float x;
             float y;
             float z;
