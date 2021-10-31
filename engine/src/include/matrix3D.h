@@ -8,17 +8,14 @@ namespace math
 
     class Matrix3D {
         public:
-            explicit Matrix3D() : r0c0(1), r0c1(0), r0c2(0), r1c0(0), r1c1(1), r1c2(0), r2c0(0), r2c1(0), r2c2(1) {};
+            explicit Matrix3D() :
+                r0c0(1), r0c1(0), r0c2(0),
+                r1c0(0), r1c1(1), r1c2(0),
+                r2c0(0), r2c1(0), r2c2(1) {};
             explicit Matrix3D(
-                float r0c0,
-                float r0c1,
-                float r0c2,
-                float r1c0,
-                float r1c1,
-                float r1c2,
-                float r2c0,
-                float r2c1,
-                float r2c2
+                float r0c0, float r0c1, float r0c2,
+                float r1c0, float r1c1, float r1c2,
+                float r2c0, float r2c1, float r2c2
             )
                 :
                     r0c0(r0c0), r0c1(r0c1), r0c2(r0c2),
