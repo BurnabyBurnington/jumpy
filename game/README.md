@@ -1,3 +1,7 @@
+## TODO
+- Do the final section for the game loop, later - https://gafferongames.com/post/fix_your_timestep/
+ - "The final touch"
+
 Check this out
 https://github.com/bvdberg/ctest
 https://github.com/Azure/ctest

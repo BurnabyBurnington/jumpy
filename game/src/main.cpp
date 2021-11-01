@@ -1,8 +1,13 @@
 #include <QApplication>
 #include <QDebug>
 
+#include <clock.h>
+
 #include <window.h>
 
+namespace {
+    engine::Clock CLOCK {};
+}
 
 int main(int argc, char *argv[])
 {
@@ -11,35 +16,30 @@ int main(int argc, char *argv[])
     game::Window window {};
     window.show();
 
-    auto getNow = [](){
-        return std::chrono::high_resolution_clock::now();
-    };
-
-    auto t{0.0};
-    auto const dt{0.02};
+    auto totalTime{0.0};
+    auto const delta{0.02};
     auto quit{false};
 
-    auto currentTime = getNow();
+    CLOCK.initialize();
     auto accumulator{0.0};
 
-    while (true)
+    while (!quit)
     {
         if (application.hasPendingEvents())
         {
             application.processEvents();
         }
 
-        auto newTime = getNow();
-        auto frameTime = std::chrono::duration<double>(newTime - currentTime).count();
-        currentTime = newTime;
+        CLOCK.newFrame();
+        auto frameTime {CLOCK.timeSinceLastFrame()};
 
         accumulator += frameTime;
 
-        while (accumulator >= dt)
+        while (accumulator >= delta)
         {
-            window.myUpdate(dt);
-            accumulator -= dt;
-            t += dt;
+            window.simulate(delta);
+            accumulator -= delta;
+            totalTime += delta;
         }
 
         window.updateGL();

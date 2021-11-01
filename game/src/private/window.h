@@ -8,8 +8,6 @@ class QKeyEvent;
 
 namespace game {
     class Window : public QGLWidget {
-        Q_OBJECT
-
         protected:
             virtual void initializeGL();
             virtual void paintGL();
@@ -21,10 +19,7 @@ namespace game {
             void updateVelocity(float scalar);
             void rotateShip(float scalar);
 
-        // TODO : Check if I can make tis private
-        // TODO : Rename this method later
-        //
-        public slots:
-            void myUpdate(double delta);
+        public:
+            void simulate(double delta);
     };
 }

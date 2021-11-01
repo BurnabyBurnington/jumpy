@@ -125,7 +125,7 @@ namespace game {
         glDrawArrays(GL_TRIANGLES, 0, VERTICES_COUNT);
     }
 
-    void Window::myUpdate(double delta)
+    void Window::simulate(double delta)
     {
         // TODO: Add ECS (Entity Component System) logic
         this->rotateShip(delta);
