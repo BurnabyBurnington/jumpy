@@ -7,7 +7,6 @@
 #include <QtCore/qnamespace.h>  // Needed for Qt::Key enums
 #include <QtGui/QKeyEvent>
 
-#include <clock.h>
 #include <matrix3D.h>
 #include <radian.h>
 #include <vector2D.h>
@@ -29,7 +28,6 @@ namespace {
     math::Vector2D SHIP_POSITION {0, 0};
     math::Vector2D SHIP_VELOCITY {0, 0};
     float SHIP_ORIENTATION {0.0};
-    engine::Clock CLOCK;
 }
 
 namespace game {
@@ -41,8 +39,6 @@ namespace game {
         //
         assert(errorCode == 0);
 
-        CLOCK.initialize();
-
         glGenBuffers(1, &this->vertexBufferId);
         glBindBuffer(GL_ARRAY_BUFFER, this->vertexBufferId);
         // glBufferData allocates and sends the data (points) to RAM
@@ -50,9 +46,6 @@ namespace game {
         // NULL - "We will tell you where this RAM's points will be later"
         //
         glBufferData(GL_ARRAY_BUFFER, sizeof(VERTICES), NULL, GL_DYNAMIC_DRAW);
-
-        this->connect(&this->timer, &QTimer::timeout, this, &Window::myUpdate);
-        this->timer.start(0);
     }
 
     void Window::rotateShip(float scalar)
@@ -132,18 +125,11 @@ namespace game {
         glDrawArrays(GL_TRIANGLES, 0, VERTICES_COUNT);
     }
 
-    void Window::myUpdate()
+    void Window::myUpdate(double delta)
     {
-        // TODO: Need to make this a proper while loop, probably. And possibly
-        // add ECS, if needed
-        //
-        CLOCK.newFrame();
-        auto const scalar = CLOCK.timeSinceLastFrame();
-
-        this->rotateShip(scalar);
-        this->updateVelocity(scalar);
+        // TODO: Add ECS (Entity Component System) logic
+        this->rotateShip(delta);
+        this->updateVelocity(delta);
         SHIP_POSITION += SHIP_VELOCITY;
-
-        this->repaint();
     }
 }

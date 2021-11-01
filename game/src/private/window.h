@@ -25,6 +25,6 @@ namespace game {
         // TODO : Rename this method later
         //
         public slots:
-            void myUpdate();
+            void myUpdate(double delta);
     };
 }
