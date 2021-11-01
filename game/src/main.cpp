@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     };
 
     auto t{0.0};
-    auto const dt{0.1};
+    auto const dt{0.02};
     auto quit{false};
 
     auto currentTime = getNow();
