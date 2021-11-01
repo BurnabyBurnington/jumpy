@@ -1,6 +1,5 @@
 #pragma once
 
-#include <QtCore/QTimer>
 #include <QtOpenGL/QGLWidget>
 #include <QtOpenGL/qgl.h>  // Needed for `GLuint`
 
@@ -14,7 +13,6 @@ namespace game {
 
         private:
             GLuint vertexBufferId;  // A bind point for the OpenGL data
-            QTimer timer;
 
             void updateVelocity(float scalar);
             void rotateShip(float scalar);
