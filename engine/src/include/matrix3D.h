@@ -28,6 +28,7 @@ namespace math
             static Matrix3D rotateZ(Radian const &angle);
             static Matrix3D translate(Vector2D const &vector);
 
+            friend Matrix3D operator*(Matrix3D const &left, Matrix3D const &right);
             friend Vector3D operator*(Matrix3D const &left, Vector3D const &right);
 
             // TODO: Make the indices private, later

@@ -19,13 +19,25 @@ namespace math
         };
     }
 
-    static Matrix3D translate(Vector2D const &vector)
+    Matrix3D Matrix3D::translate(Vector2D const &vector)
     {
         return Matrix3D {
             1, 0, vector.x,
             0, 1, vector.y,
             0, 0, 1
-        }
+        };
+    }
+
+    Matrix3D operator*(Matrix3D const &left, Matrix3D const &right)
+    {
+        // TODO: Consider changing to an unrolled loop
+        return Matrix3D {
+            (left.r0c0 * right.r0c0) + (left.r0c1 * right.r1c0) + (left.r0c2 * right.r2c0), (left.r0c0 * right.r0c1) + (left.r0c1 * right.r1c1) + (left.r0c2 * right.r2c1), (left.r0c0 * right.r0c2) + (left.r0c1 * right.r1c2) + (left.r0c2 * right.r2c2),
+
+            (left.r1c0 * right.r0c0) + (left.r1c1 * right.r1c0) + (left.r1c2 * right.r2c0), (left.r1c0 * right.r0c1) + (left.r1c1 * right.r1c1) + (left.r1c2 * right.r2c1), (left.r1c0 * right.r0c2) + (left.r1c1 * right.r1c2) + (left.r1c2 * right.r2c2),
+
+            (left.r2c0 * right.r0c0) + (left.r2c1 * right.r1c0) + (left.r2c2 * right.r2c0), (left.r2c0 * right.r0c1) + (left.r2c1 * right.r1c1) + (left.r2c2 * right.r2c1), (left.r2c0 * right.r0c2) + (left.r2c1 * right.r1c2) + (left.r2c2 * right.r2c2)
+        };
     }
 
     Vector3D operator*(Matrix3D const &left, Vector3D const &right)
