@@ -3,6 +3,7 @@
  - If not, consider consolidating
 - Change the game to use fixed sim + variable frame rate
 
+- remove all the 0.0f literals (right hand values)
 - Change all variables to east const
 
 - Make all warnings into errors
