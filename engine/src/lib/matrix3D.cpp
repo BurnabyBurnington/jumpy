@@ -2,6 +2,7 @@
 
 #include <radian.h>
 #include <matrix3D.h>
+#include <vector2D.h>
 #include <vector3D.h>
 
 namespace math
@@ -16,6 +17,15 @@ namespace math
             sin, cos, 0,
             0, 0, 1
         };
+    }
+
+    static Matrix3D translate(Vector2D const &vector)
+    {
+        return Matrix3D {
+            1, 0, vector.x,
+            0, 1, vector.y,
+            0, 0, 1
+        }
     }
 
     Vector3D operator*(Matrix3D const &left, Vector3D const &right)

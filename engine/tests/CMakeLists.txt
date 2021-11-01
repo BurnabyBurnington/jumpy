@@ -1,12 +1,13 @@
 add_executable(run_tests
     clock.cpp
     main.cpp
-    matrix3D/misc.cpp
-    matrix3D/multiplication.cpp
-    matrix3D/rotate.cpp
     matrix2D/misc.cpp
     matrix2D/multiplication.cpp
     matrix2D/rotate.cpp
+    matrix3D/misc.cpp
+    matrix3D/multiplication.cpp
+    matrix3D/rotate.cpp
+    matrix3D/translate.cpp
     vector2D/addition.cpp
     vector2D/misc.cpp
     vector2D/multiplication.cpp
