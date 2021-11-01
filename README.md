@@ -25,6 +25,19 @@ https://youtu.be/fdAOPHgW7qM?t=2484
 - Swept sphere vs rectangular solid test
 
 
+## Game Loop
+- https://www.reddit.com/r/cpp_questions/comments/5zni9x/fixed_physics_timestep_game_loop_running_too_fast/
+- https://gafferongames.com/post/fix_your_timestep/
+- https://stackoverflow.com/questions/43302268/why-use-integration-for-a-fixed-timestep-game-loop-gaffer-on-games
+https://github.com/PacktPublishing/Game-Programming-Using-Qt-5-Beginners-Guide-Second-Edition
+- https://www.titanwolf.org/Network/q/d1c6c308-6d7d-4c10-be61-1660cbf3cb12/y
+- https://stackoverflow.com/questions/22121664/how-to-implement-a-game-loop-with-c-and-qtquick
+
+- Unhelpful - https://stackoverflow.com/questions/18065004/how-to-adjust-a-game-loop-frame-rate
+- FPS counter - https://stackoverflow.com/questions/28530798/how-to-make-a-basic-fps-counter
+
+
+
 
 # 2D Vector Attempt
 http://www.danielsoltyka.com/programming/2010/05/30/c-vector2d-rectangle-classes/
