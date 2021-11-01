@@ -20,14 +20,14 @@ namespace {
     auto const BASE_VELOCITY = 0.07f;
     auto const SQUARE_ROOT_ZERO_POINT_ZERO_TWO {0.141421356f};
     const math::Vector3D VERTICES[] = {
-        {-0.0f, SQUARE_ROOT_ZERO_POINT_ZERO_TWO, 0},
-        {-0.1f, -0.1f, 0},
-        {+0.1f, -0.1f, 0},
+        {-0.0f, SQUARE_ROOT_ZERO_POINT_ZERO_TWO, 1},
+        {-0.1f, -0.1f, 1},
+        {+0.1f, -0.1f, 1},
     };
     auto const ANGULAR_MOVEMENT = 10.0f;
     const unsigned int VERTICES_COUNT = sizeof(VERTICES) / sizeof(VERTICES[0]);
-    math::Vector3D SHIP_POSITION {0, 0, 0};
-    math::Vector3D SHIP_VELOCITY {0, 0, 0};
+    math::Vector2D SHIP_POSITION {0, 0};
+    math::Vector2D SHIP_VELOCITY {0, 0};
     float SHIP_ORIENTATION {0.0};
     engine::Clock CLOCK;
 }
@@ -70,11 +70,11 @@ namespace game {
     void Window::updateVelocity(float scalar)
     {
         auto const acceleration = BASE_VELOCITY * scalar;
+        // TODO: Replace with a matrix, later
 
-        math::Vector3D const direction {
+        math::Vector2D const direction {
             -1 * std::sin(SHIP_ORIENTATION),
             std::cos(SHIP_ORIENTATION),
-            0,
         };
 
         if (game::isKeyState(game::Direction::up))
@@ -114,11 +114,13 @@ namespace game {
         glVertexAttribPointer(attributeIndex, math::Vector3D::size, GL_FLOAT, GL_FALSE, 0, 0);
 
         math::Vector3D transformedVertices[VERTICES_COUNT];
-        auto const transform = math::Matrix3D::rotateZ(math::Radian{SHIP_ORIENTATION});
+        auto const transform = 
+            math::Matrix3D::translate(SHIP_POSITION) *
+            math::Matrix3D::rotateZ(math::Radian{SHIP_ORIENTATION});
 
         for (unsigned int index = 0; index < VERTICES_COUNT; ++index)
         {
-            transformedVertices[index] = SHIP_POSITION + (transform * VERTICES[index]);
+            transformedVertices[index] = transform * VERTICES[index];
         }
 
         glBufferSubData(
