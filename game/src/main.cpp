@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
         }
 
         CLOCK.newFrame();
-        auto frameTime {CLOCK.timeSinceLastFrame()};
+        auto const frameTime {CLOCK.timeSinceLastFrame()};
 
         accumulator += frameTime;
 

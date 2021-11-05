@@ -7,9 +7,9 @@
 namespace math
 {
     Matrix2D Matrix2D::rotate(Radian const &angle) {
-        auto value = angle.get();
-        auto cos = std::cos(value);
-        auto sin = std::sin(value);
+        auto const value = angle.get();
+        auto const cos = std::cos(value);
+        auto const sin = std::sin(value);
 
         return Matrix2D {
             cos, -1 * sin,
