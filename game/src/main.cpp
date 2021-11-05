@@ -18,12 +18,11 @@ int main(int argc, char *argv[])
 
     auto totalTime{0.0};
     auto const delta{0.02};
-    auto quit{false};
 
     CLOCK.initialize();
     auto accumulator{0.0};
 
-    while (!quit)
+    while (!window.needsQuit())
     {
         if (application.hasPendingEvents())
         {
