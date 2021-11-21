@@ -31,6 +31,11 @@ namespace {
 }
 
 namespace game {
+    bool Window::allowedUserInput()
+    {
+        return this->underMouse();
+    }
+
     void Window::initializeGL()
     {
         auto errorCode = glewInit();
@@ -128,8 +133,11 @@ namespace game {
     void Window::simulate(double delta)
     {
         // TODO: Add ECS (Entity Component System) logic
-        this->rotateShip(delta);
-        this->updateVelocity(delta);
+        if (this->allowedUserInput())
+        {
+            this->rotateShip(delta);
+            this->updateVelocity(delta);
+        }
         SHIP_POSITION += SHIP_VELOCITY;
     }
 }

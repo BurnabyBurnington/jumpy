@@ -16,6 +16,7 @@ namespace game {
             GLuint vertexBufferId;  // A bind point for the OpenGL data
             bool quitRequested = false;
 
+            bool allowedUserInput();
             void updateVelocity(float scalar);
             void rotateShip(float scalar);
             void closeEvent(QCloseEvent *event) { this->quitRequested = true; event->accept(); };
