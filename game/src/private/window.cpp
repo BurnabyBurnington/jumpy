@@ -36,6 +36,16 @@ namespace game {
         return this->underMouse();
     }
 
+    inline void Window::createViewport()
+    {
+        auto const minimum = std::min(this->width(), this->height());
+        math::Vector2D viewport {
+            (this->width() / 2.0f) - (minimum / 2.0f),
+            (this->height() / 2.0f) - (minimum / 2.0f)
+        };
+        glViewport(viewport.x, viewport.y, minimum, minimum);
+    }
+
     void Window::initializeGL()
     {
         auto errorCode = glewInit();
@@ -90,12 +100,8 @@ namespace game {
     {
         glClear(GL_COLOR_BUFFER_BIT);
 
-        auto const minimum = std::min(this->width(), this->height());
-        math::Vector2D viewport {
-            (this->width() / 2.0f) - (minimum / 2.0f),
-            (this->height() / 2.0f) - (minimum / 2.0f)
-        };
-        glViewport(viewport.x, viewport.y, minimum, minimum);
+        // Create a viewport
+        this->createViewport();
 
         // To get OpenGL to send the data to RAM into the processing
         // pipeline, you have to tell OpenGL to enable that attribute
@@ -121,20 +127,23 @@ namespace game {
             transformedVertices[index] = transform * VERTICES[index];
         }
 
+        // Send data to OpenGL
         glBufferSubData(
             GL_ARRAY_BUFFER,
             0,
             sizeof(transformedVertices),
             transformedVertices
         );
+
+        // Draw the points
         glDrawArrays(GL_TRIANGLES, 0, VERTICES_COUNT);
     }
 
     void Window::simulate(double delta)
     {
-        // TODO: Add ECS (Entity Component System) logic
         if (this->allowedUserInput())
         {
+            // TODO: Add ECS (Entity Component System) logic
             this->rotateShip(delta);
             this->updateVelocity(delta);
         }
