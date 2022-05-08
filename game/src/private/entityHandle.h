@@ -16,7 +16,7 @@ namespace game
             EntityHandle(game::World *world, game::Entity entity) : world(world), entity(entity) {}
 
             template<typename Type>
-            game::componentHandler::Handler<Type> addComponent(Type component) {
+            game::componentHandler::Handler<Type> addComponent(Type &&component) {
                 this->world->addComponent(entity, component);
 
                 return game::componentHandler::Handler<Type>(component);

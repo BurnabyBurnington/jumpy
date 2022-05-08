@@ -11,13 +11,11 @@ namespace game
 
     class BaseComponentManager
     {
-        public:
-            BaseComponentManager() {};
     };
 
     template <typename Type>
     struct ComponentData {
-        unsigned int size = 1;
+        unsigned int size = 0;
         // TODO: This means we can only have a max of 1024 components, total
         // This system will need to be changed when scaling becomes an issue.
         //
@@ -29,6 +27,8 @@ namespace game
     class ComponentManager : public BaseComponentManager
     {
         public:
+            ComponentManager<Type>() {}
+
             ComponentInstance add(Entity entity, Type& component)
             {
                 ComponentInstance newInstance { this->data.size };

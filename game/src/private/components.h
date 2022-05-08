@@ -2,6 +2,8 @@
 
 #include <jumpy_engine/vector2D.h>
 
+#include "types/simple.h"
+
 
 namespace
 {
@@ -31,8 +33,11 @@ namespace game
         class Health : public Component
         {
             public:
-                int current;
-                int max;
+                Health() : current(0), max(0) {}
+                Health(int current, int max) : current(current), max(max) {}
+
+                game::types::Health current;
+                game::types::Health max;
         };
 
         class Motion : public Component
