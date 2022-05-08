@@ -1,2 +1,0 @@
-std::map<Entity, ComponentInstance>
-

@@ -2,6 +2,7 @@
 
 #include <memory>
 
+#include "componentHandler.h"
 #include "entity.h"
 #include "world.h"
 
@@ -15,8 +16,10 @@ namespace game
             EntityHandle(std::shared_ptr<game::World> world, game::Entity entity) : world(world), entity(entity) {}
 
             template<typename Type>
-            void addComponent(Type component) {
+            BaseComponentHandler addComponent(Type component) {
                 this->world->addComponent(entity, component);
+
+                return game::componentHandler::get<Type>(component);
             }
 
         private:

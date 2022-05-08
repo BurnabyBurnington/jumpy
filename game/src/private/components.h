@@ -1,3 +1,5 @@
+#pragma once
+
 #include <jumpy_engine/vector2D.h>
 
 

@@ -1,5 +1,6 @@
 - Re-organize all namespaces as files / folders
 - Consider move semantics, where possible
+- 99% sure the import order is wrong
 - Check for forward declarations
 - Check if I can make stuff const / reference etc
 - Move ECS stuff to the engine, later

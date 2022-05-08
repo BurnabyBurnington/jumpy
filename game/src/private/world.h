@@ -21,27 +21,14 @@ namespace game
             template<typename Type>
             void addComponent(Entity const &entity, Type &component)
             {
-                auto *manager = this->getOrCreateComponentFamilyIndex<Type>();
+                auto family = this->getOrCreateComponentFamilyIndex<Type>();
+                auto manager = this->componentManagers[family];
                 manager->addComponent(entity, component);
             }
 
             game::EntityHandle createEntity();
 
         private:
-            // TODO : This function is awkward. See if I can refactor it later
-            // template<typename Type>
-            // void addComponentFamily(Type manager)
-            // {
-            //     unsigned int family = this->getOrCreateComponentFamilyIndex<Type>();
-            //
-            //     if (family >= this->componentManagers.size()) {
-            //         // Make room for the new family
-            //         this->componentManagers.resize(family + 1);
-            //     }
-            //
-            //     componentManagers[family] = manager;
-            // }
-
             template<typename Type>
             ComponentManager<Type> *getComponentManager()
             {
