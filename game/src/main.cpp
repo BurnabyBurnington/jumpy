@@ -19,7 +19,9 @@ int main(int argc, char *argv[])
     game::World world {};
     auto player = world.createEntity();
     auto health = player.addComponent(new game::components::Health{});
-    health.heal(10);
+    // health.heal(10);
+
+    // std::cout << "Got Health: " health.get() << '\n';
     // game::EntityManager entityManager {};
     // auto player = entityManager.create();
     //

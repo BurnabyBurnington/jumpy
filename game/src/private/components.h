@@ -3,30 +3,51 @@
 #include <jumpy_engine/vector2D.h>
 
 
+namespace
+{
+    int FAMILY_COUNTER {0};
+}
+
 namespace game
 {
     namespace components
     {
-        struct Joystick
+        using FamilyIndex = unsigned int;
+
+        class Component
+        {
+            static inline FamilyIndex family() {
+                FAMILY_COUNTER++;
+
+                return FAMILY_COUNTER;
+            }
+        };
+
+        class Joystick : public Component
         {
         };
 
-        struct Health
+        class Health : public Component
         {
             int current;
             int max;
         };
 
-        struct Motion
+        class Motion : public Component
         {
             math::Vector2D velocity;
             math::Vector2D acceleration;
         };
 
-        struct Transform
+        class Transform : public Component
         {
             int x;
             int y;
         };
+
+        template <typename Type>
+        static FamilyIndex getFamilyIndex() {
+            return Type::family();
+        }
     }
 }

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include <iostream>
 
 #include "components.h"
@@ -8,6 +9,10 @@ namespace game
 {
     namespace componentHandler
     {
+        class BaseHandler;
+
+        using HandlePointer = std::unique_ptr<BaseHandler>;
+
         class BaseHandler
         {
         };
@@ -26,7 +31,10 @@ namespace game
                 game::components::Health health;
         };
 
-        get
+        HandlePointer get()
+        {
+            return std::make_unique<BaseHandler>();
+        }
 
         // // TODO : Figure out what to do about this code
         // template<typename Type>

@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "componentManager.h"
+#include "components.h"
 #include "entity.h"
 #include "entityManager.h"
 
@@ -21,9 +22,9 @@ namespace game
             template<typename Type>
             void addComponent(Entity const &entity, Type &component)
             {
-                auto family = this->getOrCreateComponentFamilyIndex<Type>();
+                auto family = game::components::getFamilyIndex<Type>();
                 auto manager = this->componentManagers[family];
-                manager->addComponent(entity, component);
+                manager->add(entity, component);
             }
 
             game::EntityHandle createEntity();
@@ -32,7 +33,7 @@ namespace game
             template<typename Type>
             ComponentManager<Type> *getComponentManager()
             {
-                unsigned int family = this->getOrCreateComponentFamilyIndex<Type>();
+                auto family = game::components::getFamilyIndex<Type>();
 
                 if (family >= this->componentManagers.size()) {
                     // Make room for the new family
@@ -44,22 +45,22 @@ namespace game
                 return static_cast<ComponentManager<Type>*>(raw);
             }
 
-            template<typename Type>
-            unsigned int getOrCreateComponentFamilyIndex(Type manager)
-            {
-                auto iterator = std::find(
-                    this->componentManagers.begin(),
-                    this->componentManagers.end(),
-                    manager
-                );
-
-                if (iterator == this->componentManagers.cend())
-                {
-                    return this->componentManagers.size();
-                }
-
-                return std::distance(this->componentManagers.begin(), iterator);
-            }
+            // template<typename Type>
+            // unsigned int getOrCreateComponentFamilyIndex()
+            // {
+            //     auto iterator = std::find(
+            //         this->componentManagers.begin(),
+            //         this->componentManagers.end(),
+            //         Type
+            //     );
+            //
+            //     if (iterator == this->componentManagers.cend())
+            //     {
+            //         return this->componentManagers.size();
+            //     }
+            //
+            //     return std::distance(this->componentManagers.begin(), iterator);
+            // }
 
             std::unique_ptr<game::EntityManager> entityManager;
             std::vector<std::unique_ptr<game::BaseComponentManager>> componentManagers;

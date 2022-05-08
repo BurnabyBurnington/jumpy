@@ -10,6 +10,8 @@ namespace game
 
     class BaseComponentManager
     {
+        public:
+            BaseComponentManager() {};
     };
 
     // template <typename Type>
@@ -27,8 +29,8 @@ namespace game
     template<typename Type>
     class ComponentManager : public BaseComponentManager
     {
-        // public:
-        //     ComponentInstance add(Entity entity, Type& component);
+        public:
+            ComponentInstance add(Entity entity, Type& component);
         //
         //     Type* lookup(Entity entity);
         //
