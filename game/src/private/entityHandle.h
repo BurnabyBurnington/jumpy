@@ -16,12 +16,10 @@ namespace game
             EntityHandle(game::World *world, game::Entity entity) : world(world), entity(entity) {}
 
             template<typename Type>
-            void addComponent(Type component) {
+            game::componentHandler::Handler<Type> addComponent(Type component) {
                 this->world->addComponent(entity, component);
 
-                // TODO: Remove this bad code later
-                component->current = 30;
-                // return game::componentHandler::get();
+                return game::componentHandler::Handler<Type>(component);
             }
 
         private:

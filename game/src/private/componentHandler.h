@@ -17,22 +17,28 @@ namespace game
         {
         };
 
-        class HealthHandler : public BaseHandler
+        template<typename Type>
+        class Handler : public BaseHandler
         {
             public:
-                HealthHandler(game::components::Health health) : health(health) {}
+                Handler(Type component) : component(component) {}
 
+            protected:
+                Type component;
+        };
+
+        template<>
+        class Handler<game::components::Health>
+        {
+            public:
                 void heal(unsigned int amount)
                 {
                     std::cout << "AMOUNT: " << amount << '\n';
                 }
-
-            private:
-                game::components::Health health;
         };
 
         // // TODO: Remove this useless function later
-        // HandlePointer get()
+        // HandlePointer get(game::components::Health)
         // {
         //     return std::make_unique<BaseHandler>();
         // }
