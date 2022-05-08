@@ -1,3 +1,9 @@
+- Re-organize all namespaces as files / folders
+- Check for forward declarations
+- Check if I can make stuff const / reference etc
+- Move ECS stuff to the engine, later
+
+
 ## TODO
 - Do the final section for the game loop, later - https://gafferongames.com/post/fix_your_timestep/
  - "The final touch"

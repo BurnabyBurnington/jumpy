@@ -1,3 +1,6 @@
+- Add clangtidy
+
+
 ## TODO
 - Remove Matrix2D / Vector2D if able
  - If not, consider consolidating
