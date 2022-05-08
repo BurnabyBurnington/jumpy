@@ -18,6 +18,9 @@ namespace game
     template <typename Type>
     struct ComponentData {
         unsigned int size = 1;
+        // TODO: This means we can only have a max of 1024 components, total
+        // This system will need to be changed when scaling becomes an issue.
+        //
         std::array<Type, 1024> data;
     };
 
