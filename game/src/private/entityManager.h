@@ -9,8 +9,9 @@ namespace game
     {
         public:
             game::types::EntityIndex getNextIndex() {
-                current += 1;
-                return current;
+                this->current += 1;
+
+                return this->current;
             }
 
         private:

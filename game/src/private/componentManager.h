@@ -7,6 +7,8 @@
 // TODO: Consider optimizing (e.g. using const &Entity, etc
 namespace game
 {
+    using ComponentInstance = unsigned int;
+
     class BaseComponentManager
     {
         public:
@@ -17,11 +19,6 @@ namespace game
     struct ComponentData {
         unsigned int size = 1;
         std::array<Type, 1024> data;
-    };
-
-    // TODO: Possibly remove this / simplify in the future
-    struct ComponentInstance {
-        unsigned int index;
     };
 
     // TODO : Finish this

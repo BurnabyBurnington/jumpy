@@ -30,7 +30,7 @@ namespace game
 
         class Health : public Component
         {
-            private:
+            public:
                 int current;
                 int max;
         };

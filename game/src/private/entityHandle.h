@@ -16,10 +16,12 @@ namespace game
             EntityHandle(std::shared_ptr<game::World> world, game::Entity entity) : world(world), entity(entity) {}
 
             template<typename Type>
-            game::componentHandler::HandlePointer addComponent(Type component) {
+            void addComponent(Type component) {
                 this->world->addComponent(entity, component);
 
-                return game::componentHandler::get();
+                // TODO: Remove this bad code later
+                component->current = 30;
+                // return game::componentHandler::get();
             }
 
         private:

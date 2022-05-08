@@ -31,22 +31,10 @@ namespace game
                 game::components::Health health;
         };
 
-        HandlePointer get()
-        {
-            return std::make_unique<BaseHandler>();
-        }
-
-        // // TODO : Figure out what to do about this code
-        // template<typename Type>
-        // BaseHandler get(Type component)
+        // // TODO: Remove this useless function later
+        // HandlePointer get()
         // {
-        //     return {};
+        //     return std::make_unique<BaseHandler>();
         // }
-        //
-        // // template<>
-        // // HealthHandler get<game::components::Health>(game::components::Health component)
-        // // {
-        // //     return {component};
-        // // }
     }
 }
