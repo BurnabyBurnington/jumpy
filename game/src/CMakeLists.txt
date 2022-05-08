@@ -2,6 +2,7 @@ add_executable(jumpy_game
     main.cpp
     private/keyState.cpp
     private/window.cpp
+    private/world.cpp
 )
 
 target_compile_features(jumpy_game PRIVATE cxx_std_17)

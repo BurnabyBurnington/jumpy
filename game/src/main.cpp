@@ -4,6 +4,7 @@
 #include <jumpy_engine/clock.h>
 
 #include <components.h>
+#include <entityHandle.h>
 #include <window.h>
 #include <world.h>
 

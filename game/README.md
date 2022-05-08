@@ -1,4 +1,5 @@
 - Re-organize all namespaces as files / folders
+- Consider move semantics, where possible
 - Check for forward declarations
 - Check if I can make stuff const / reference etc
 - Move ECS stuff to the engine, later

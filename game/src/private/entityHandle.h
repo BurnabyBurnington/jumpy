@@ -14,8 +14,8 @@ namespace game
         public:
             EntityHandle(std::shared_ptr<game::World> world, game::Entity entity) : world(world), entity(entity) {}
 
-            template<typename ComponentType>
-            void addComponent(ComponentType component) {
+            template<typename Type>
+            void addComponent(Type component) {
                 this->world->addComponent(entity, component);
             }
 
