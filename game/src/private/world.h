@@ -22,8 +22,7 @@ namespace game
             template<typename Type>
             void addComponent(Entity const &entity, Type &component)
             {
-                auto family = game::components::getFamilyIndex<Type>();
-                auto manager = this->componentManagers[family];
+                auto manager = this->getComponentManager<Type>();
                 manager->add(entity, component);
             }
 
@@ -33,7 +32,9 @@ namespace game
             template<typename Type>
             ComponentManager<Type> *getComponentManager()
             {
-                auto family = game::components::getFamilyIndex<Type>();
+                // TODO : Replace this hard-coded value, later
+                auto family = game::components::Health::family();
+                // auto family = Type::family();
 
                 if (family >= this->componentManagers.size()) {
                     // Make room for the new family

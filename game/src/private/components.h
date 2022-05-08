@@ -16,11 +16,12 @@ namespace game
 
         class Component
         {
-            static inline FamilyIndex family() {
-                FAMILY_COUNTER++;
+            public:
+                static inline FamilyIndex family() {
+                    FAMILY_COUNTER++;
 
-                return FAMILY_COUNTER;
-            }
+                    return FAMILY_COUNTER;
+                }
         };
 
         class Joystick : public Component
@@ -29,8 +30,9 @@ namespace game
 
         class Health : public Component
         {
-            int current;
-            int max;
+            private:
+                int current;
+                int max;
         };
 
         class Motion : public Component
@@ -45,9 +47,10 @@ namespace game
             int y;
         };
 
-        template <typename Type>
-        static FamilyIndex getFamilyIndex() {
-            return Type::family();
-        }
+        // TODO : Remove later
+        // template <typename Type>
+        // static FamilyIndex getFamilyIndex() {
+        //     return Type::family();
+        // }
     }
 }
