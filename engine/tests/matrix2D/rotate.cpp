@@ -1,8 +1,9 @@
 #include <math.h>
 
+#include <jumpy_engine/matrix2D.h>
+#include <jumpy_engine/radian.h>
+
 #include <ctest.h>
-#include <matrix2D.h>
-#include <radian.h>
 
 // TODO: Add tests with a huge float value
 // TODO: Add variations

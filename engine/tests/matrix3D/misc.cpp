@@ -1,5 +1,6 @@
 #include <ctest.h>
-#include <matrix3D.h>
+
+#include <jumpy_engine/matrix3D.h>
 
 CTEST(matrixBasics, default)
 {

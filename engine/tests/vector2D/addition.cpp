@@ -1,6 +1,7 @@
 #include <cassert>
 #include <ctest.h>
-#include <vector2D.h>
+
+#include <jumpy_engine/vector2D.h>
 
 // TODO: Add tests with a huge int value
 // TODO: Add tests to ensure the + operator can be chained repeatedly

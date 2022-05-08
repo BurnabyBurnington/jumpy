@@ -20,7 +20,7 @@ install(
 # 3. Create a Config.cmake so we can use find_package with our exported engine
 include(CMakePackageConfigHelpers)
 
-configure_package_config_file(${CMAKE_CURRENT_LIST_DIR}/JumpyEngineConfig.cmake
+configure_package_config_file(${CMAKE_CURRENT_LIST_DIR}/JumpyEngineConfig.cmake.in
     ${CMAKE_CURRENT_BINARY_DIR}/JumpyEngineConfig.cmake
     INSTALL_DESTINATION ${INSTALL_CONFIGURATION_DIRECTORY}
 )

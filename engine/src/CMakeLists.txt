@@ -16,6 +16,7 @@ add_library(jumpy_engine
 #     target_compile_options(jumpy_engine PRIVATE -Wall -Wextra -Wpedantic -Werror)
 # endif()
 #
+target_compile_features(jumpy_engine PRIVATE cxx_std_17)
 target_compile_options(jumpy_engine PRIVATE -Wall -Wextra -Wpedantic -Werror)
 
 target_include_directories(jumpy_engine

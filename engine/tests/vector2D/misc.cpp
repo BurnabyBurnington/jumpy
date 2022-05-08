@@ -1,5 +1,6 @@
 #include <ctest.h>
-#include <vector2D.h>
+
+#include <jumpy_engine/vector2D.h>
 
 CTEST(vectorBasics, default)
 {

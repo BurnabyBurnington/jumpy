@@ -1,7 +1,7 @@
 #include <QApplication>
 #include <QTimer>
 
-#include <clock.h>
+#include <jumpy_engine/clock.h>
 
 #include <window.h>
 

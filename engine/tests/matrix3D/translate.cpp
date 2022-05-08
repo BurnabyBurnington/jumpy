@@ -1,9 +1,10 @@
 #include <math.h>
 
 #include <ctest.h>
-#include <vector2D.h>
-#include <vector3D.h>
-#include <matrix3D.h>
+
+#include <jumpy_engine/vector2D.h>
+#include <jumpy_engine/vector3D.h>
+#include <jumpy_engine/matrix3D.h>
 
 
 CTEST(matrixTranslate, const) {

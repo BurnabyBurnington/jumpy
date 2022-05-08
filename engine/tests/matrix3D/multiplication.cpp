@@ -1,7 +1,8 @@
 #include <cassert>
 #include <ctest.h>
-#include <matrix3D.h>
-#include <vector3D.h>
+
+#include <jumpy_engine/matrix3D.h>
+#include <jumpy_engine/vector3D.h>
 
 // TODO: Add tests with a huge float value
 // TODO: Add tests to ensure the + operator can be chained repeatedly

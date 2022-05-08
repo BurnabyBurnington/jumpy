@@ -1,4 +1,4 @@
-#include <vector2D.h>
+#include <jumpy_engine/vector2D.h>
 
 namespace math {
     Vector2D operator+(Vector2D const &left, Vector2D const &right)

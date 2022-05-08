@@ -1,7 +1,9 @@
 #include <cassert>
 #include <chrono>
 #include <thread>
-#include <clock.h>
+
+#include <jumpy_engine/clock.h>
+
 #include <ctest.h>  // TODO: Make this into a common library, later
 
 void sleepSeconds(float seconds){

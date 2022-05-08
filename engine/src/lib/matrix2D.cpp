@@ -1,8 +1,8 @@
 #include <cmath>  // cos, sin
 
-#include <radian.h>
-#include <matrix2D.h>
-#include <vector2D.h>
+#include <jumpy_engine/radian.h>
+#include <jumpy_engine/matrix2D.h>
+#include <jumpy_engine/vector2D.h>
 
 namespace math
 {
