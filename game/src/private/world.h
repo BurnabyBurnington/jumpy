@@ -19,6 +19,11 @@ namespace game
     class World : public std::enable_shared_from_this<World>
     {
         public:
+            World()
+            {
+                this->entityManager = std::make_unique<game::EntityManager>();
+            }
+
             template<typename Type>
             void addComponent(Entity const &entity, Type &component)
             {
@@ -39,6 +44,11 @@ namespace game
                 if (family >= this->componentManagers.size()) {
                     // Make room for the new family
                     this->componentManagers.resize(family + 1);
+                }
+
+                if (!componentManagers[family]) {
+                    // Initialize the new manager
+                    componentManagers[family] = std::make_unique<ComponentManager<Type>>();
                 }
 
                 auto raw = this->componentManagers[family].get();

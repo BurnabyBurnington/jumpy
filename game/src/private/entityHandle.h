@@ -13,7 +13,7 @@ namespace game
     class EntityHandle
     {
         public:
-            EntityHandle(std::shared_ptr<game::World> world, game::Entity entity) : world(world), entity(entity) {}
+            EntityHandle(game::World *world, game::Entity entity) : world(world), entity(entity) {}
 
             template<typename Type>
             void addComponent(Type component) {
@@ -25,11 +25,8 @@ namespace game
             }
 
         private:
-            // XXX : Possibly remove this shared_ptr. Because IIRC shared_ptr
-            // has overhead and it's unlikely that `world` will become a
-            // dangling pointer.
-            //
-            std::shared_ptr<game::World> world;
+            // TODO: Consider using a shared_ptr or something later
+            game::World* world;
             game::Entity entity;
     };
 }

@@ -7,8 +7,8 @@ namespace game
     {
         game::Entity entity {this->entityManager->getNextIndex()};
 
-        // XXX : Possibly it's overkill to pass a shared_ptr
-        return game::EntityHandle {this->shared_from_this(), entity};
+        // TODO : Possibly needs a shared_ptr or something
+        return game::EntityHandle {this, entity};
     }
 }
 

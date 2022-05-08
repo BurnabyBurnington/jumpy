@@ -38,7 +38,7 @@ namespace game
             }
 
         private:
-            ComponentData<Type> data;
-            std::map<Entity, ComponentInstance> entityMap;
+            ComponentData<Type> data {};
+            std::map<Entity, ComponentInstance> entityMap {};
     };
 }
