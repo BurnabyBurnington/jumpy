@@ -27,9 +27,10 @@ int main(int argc, char *argv[])
     player.addComponent(game::components::Motion());
     player.addComponent(game::components::Transform());
 
-    std::unique_ptr<game::systems::System> joystick = std::make_unique<game::systems::Joystick>();
+    auto joystick = std::make_unique<game::systems::Joystick>();
     world.addSystem(std::move(joystick));
 
+    world.initialize();
     game::Window window {};
     window.show();
 

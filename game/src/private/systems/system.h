@@ -14,6 +14,9 @@ namespace game
     {
         class System {
             public:
+                System() = default;
+                virtual ~System() = default;
+
                 // Initialize the System — This happens *before* the game
                 // starts but *after* the world has been registered.
                 //
@@ -23,7 +26,7 @@ namespace game
 
                 #pragma GCC diagnostic push
                 #pragma GCC diagnostic ignored "-Wunused-parameter"
-                virtual void update(int delta) {};
+                virtual void update(double delta) {};
                 #pragma GCC diagnostic pop
 
                 virtual void render() {};

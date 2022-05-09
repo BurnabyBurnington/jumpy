@@ -30,7 +30,7 @@ namespace game
                     }
                 }
 
-                virtual void update(double delta)
+                virtual void update(double delta) override
                 {
                     std::cout << "UPdating: " << delta << '\n';
                     // // TODO : Finish
