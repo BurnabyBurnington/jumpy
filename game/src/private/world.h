@@ -46,7 +46,10 @@ namespace game
 
             void initialize();
 
+            void render();
+
             void update(double delta);
+
             void updateEntityMask(Entity const &entity, game::componentMask::Mask const &old);
 
         private:

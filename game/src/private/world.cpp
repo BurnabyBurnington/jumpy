@@ -25,6 +25,14 @@ namespace game
         }
     }
 
+    void World::render()
+    {
+        for (auto &system : this->systems)
+        {
+            system->render();
+        }
+    }
+
     void World::update(double delta)
     {
         for (auto &system : this->systems)
