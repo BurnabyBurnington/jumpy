@@ -5,9 +5,10 @@
 
 #include <jumpy_engine/clock.h>
 
-#include <components.h>
+#include <components/components.h>
 #include <entityHandle.h>
 #include <systems/playerMovement.h>
+#include <systems/playerRenderer.h>
 #include <window.h>
 #include <world.h>
 
@@ -26,9 +27,10 @@ int main(int argc, char *argv[])
 
     auto player {world.createEntity()};
     // TODO: Replace with {}s, if able
-    player.addComponent(game::components::Health(3, 10));
-    player.addComponent(game::components::Motion());
-    player.addComponent(game::components::Transform());
+    // player.addComponent(game::components::Health(3, 10));
+    // player.addComponent(game::components::Motion());
+    // player.addComponent(game::components::Transform());
+    player.addComponent(game::systems::makePlayerRenderer());
 
     world.initialize();
     game::Window window {};
@@ -36,6 +38,7 @@ int main(int argc, char *argv[])
 
     auto runGameLoop = [&application, &world, &window]() {
         auto totalTime{0.0};
+        // TODO: Check if we really need the double precision, anyway
         auto const delta{0.02};
 
         CLOCK.initialize();

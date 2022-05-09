@@ -33,12 +33,17 @@ namespace game
             {
                 ComponentInstance newInstance { this->data.size };
                 this->data.data[newInstance] = component;
-                // TODO : Add this back in later, so we can map entity -> components
-                // this->entityMap[entity] = newInstance;
+                this->entityMap[entity] = newInstance;
 
                 this->data.size++;
 
                 return newInstance;
+            }
+
+            Type *lookup(Entity entity) {
+                auto instance = this->entityMap[entity];
+
+                return &this->data.data[instance];
             }
 
         private:

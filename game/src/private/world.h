@@ -6,9 +6,10 @@
 #include <utility>
 #include <vector>
 
+#include "componentHandler.h"
 #include "componentManager.h"
 #include "componentMask.h"
-#include "components.h"
+#include "components/components.h"
 #include "entity.h"
 #include "entityManager.h"
 #include "systems/system.h"
@@ -47,6 +48,23 @@ namespace game
             void initialize();
 
             void render();
+
+            // TODO: Make this work with multiple handle later, maybe
+            //
+            //       Reference: https://github.com/taurheim/NomadECS/blob/70195daa69f4f108e388c74fa6e0b1071f7a01a7/src/world.h#L81-L97
+            //
+            template <typename Type>
+            void unpack(Entity entity, game::componentHandler::Handler<Type> &handle)
+            {
+                auto manager = this->getComponentManager<Type>();
+                auto component = manager->lookup(entity);
+
+                // TODO: Make this work with a generic component handler
+                handle = game::componentHandler::Handler<Type>(*component);
+                // handle = game::transformHandler::Handler(&component);
+                // handle = game::transformHandler::Handler(*component);
+                // handle.component = *component;
+            }
 
             void update(double delta);
 

@@ -1,9 +1,12 @@
 #pragma once
 
+#include <iostream>
+
 #include <type_traits>
 
-#include <jumpy_engine/vector2D.h>
 #include <jumpy_engine/matrix3D.h>
+#include <jumpy_engine/radian.h>
+#include <jumpy_engine/vector2D.h>
 
 #include "types/simple.h"
 
@@ -49,6 +52,14 @@ namespace game
         class Transform : public Component<Transform>
         {
             math::Matrix3D transform;
+
+            public:
+                // TODO: Consider strong types, here
+                void rotate(math::Radian const &radians)
+                {
+                    std::cout << "ROTATING here " << radians.get() << "\n";
+                    this->transform.rotateZ(radians);
+                }
         };
 
         // TODO : Remove later

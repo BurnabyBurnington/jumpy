@@ -6,5 +6,6 @@ namespace game
     {
         using EntityIndex = unsigned int;
         using Health = unsigned int;
+
     }
 }

@@ -1,9 +1,11 @@
+# TODO: Add .h files so that updates cause re-compilation
+
 add_executable(jumpy_game
     main.cpp
-    private/keyState.cpp
-    private/window.cpp
-    private/systems/system.cpp
     private/componentMask.cpp
+    private/keyState.cpp
+    private/systems/system.cpp
+    private/window.cpp
     private/world.cpp
 )
 
