@@ -70,7 +70,7 @@ namespace game
 
             void updateEntityMask(Entity const &entity, game::componentMask::Mask const &old);
 
-        private:
+            // TODO: Make this method private, later
             template<typename Type>
             ComponentManager<Type> *getComponentManager()
             {
@@ -93,6 +93,7 @@ namespace game
                 return static_cast<ComponentManager<Type>*>(raw);
             }
 
+        private:
             // TODO : Remove?
             // template<typename Type>
             // unsigned int getOrCreateComponentFamilyIndex()

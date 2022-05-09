@@ -4,11 +4,14 @@
 
 #include "entity.h"
 
+namespace
+{
+    using ComponentInstance = unsigned int;
+}
+
 // TODO: Consider optimizing (e.g. using const &Entity, etc
 namespace game
 {
-    using ComponentInstance = unsigned int;
-
     class BaseComponentManager
     {
     };
