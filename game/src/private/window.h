@@ -18,7 +18,6 @@ namespace game {
 
             inline void createViewport();
             void updateVelocity(float scalar);
-            void rotateShip(float scalar);
             void closeEvent(QCloseEvent *event) { this->quitRequested = true; event->accept(); };
 
         public:

@@ -63,18 +63,6 @@ namespace game {
         glBufferData(GL_ARRAY_BUFFER, sizeof(VERTICES), NULL, GL_DYNAMIC_DRAW);
     }
 
-    void Window::rotateShip(float scalar)
-    {
-        if (game::isKeyState(game::Direction::right))
-        {
-            SHIP_ORIENTATION -= ANGULAR_MOVEMENT * scalar;
-        }
-        if (game::isKeyState(game::Direction::left))
-        {
-            SHIP_ORIENTATION += ANGULAR_MOVEMENT * scalar;
-        }
-    }
-
     void Window::updateVelocity(float scalar)
     {
         auto const acceleration = BASE_VELOCITY * scalar;

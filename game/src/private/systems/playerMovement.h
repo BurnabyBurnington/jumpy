@@ -10,10 +10,10 @@ namespace game
 {
     namespace systems
     {
-        class Joystick : public System
+        class PlayerMovement : public System
         {
             public:
-                Joystick() {
+                PlayerMovement() {
                     this->signature.addComponent<game::components::Motion>();
                     this->signature.addComponent<game::components::Transform>();
                 }
@@ -22,7 +22,10 @@ namespace game
                 {
                     if (game::isKeyState(game::Direction::left))
                     {
-                        std::cout << "left: " << delta << '\n';
+                        for (auto &entity : this->registeredEntities)
+                        {
+                            std::cout << "left: " << delta << '\n';
+                        }
                     }
                     else if (game::isKeyState(game::Direction::right))
                     {
@@ -32,10 +35,9 @@ namespace game
 
                 virtual void update(double delta) override
                 {
-                    std::cout << "UPdating: " << delta << '\n';
                     // // TODO : Finish
-                    // this->rotateShip(delta);
-                    // this-> updateVelocity(delta);
+                    this->rotateShip(delta);
+                    // this->updateVelocity(delta);
                     // // SHIP_POSITION += SHIP_VELOCITY;
                 }
         };

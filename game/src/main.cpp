@@ -7,7 +7,7 @@
 
 #include <components.h>
 #include <entityHandle.h>
-#include <systems/joystick.h>
+#include <systems/playerMovement.h>
 #include <window.h>
 #include <world.h>
 
@@ -21,14 +21,14 @@ int main(int argc, char *argv[])
     QApplication application(argc, argv);
 
     game::World world {};
+    auto mover = std::make_unique<game::systems::PlayerMovement>();
+    world.addSystem(std::move(mover));
+
     auto player {world.createEntity()};
     // TODO: Replace with {}s, if able
     player.addComponent(game::components::Health(3, 10));
     player.addComponent(game::components::Motion());
     player.addComponent(game::components::Transform());
-
-    auto joystick = std::make_unique<game::systems::Joystick>();
-    world.addSystem(std::move(joystick));
 
     world.initialize();
     game::Window window {};

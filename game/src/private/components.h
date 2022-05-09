@@ -3,6 +3,7 @@
 #include <type_traits>
 
 #include <jumpy_engine/vector2D.h>
+#include <jumpy_engine/matrix3D.h>
 
 #include "types/simple.h"
 
@@ -47,8 +48,7 @@ namespace game
 
         class Transform : public Component<Transform>
         {
-            int x;
-            int y;
+            math::Matrix3D transform;
         };
 
         // TODO : Remove later
