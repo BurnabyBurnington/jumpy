@@ -1,5 +1,7 @@
 #pragma once
 
+#include <type_traits>
+
 #include <jumpy_engine/vector2D.h>
 
 #include "types/simple.h"
@@ -7,7 +9,7 @@
 
 namespace
 {
-    int FAMILY_COUNTER {0};
+    static int FAMILY_COUNTER = 0;
 }
 
 namespace game
@@ -16,21 +18,18 @@ namespace game
     {
         using FamilyIndex = unsigned int;
 
+        template<typename ComponentType>
         class Component
         {
             public:
                 static inline FamilyIndex family() {
-                    FAMILY_COUNTER++;
+                    static FamilyIndex family = FAMILY_COUNTER++;
 
-                    return FAMILY_COUNTER;
+                    return family;
                 }
         };
 
-        class Joystick : public Component
-        {
-        };
-
-        class Health : public Component
+        class Health : public Component<Health>
         {
             public:
                 Health() : current(0), max(0) {}
@@ -40,13 +39,13 @@ namespace game
                 game::types::Health max;
         };
 
-        class Motion : public Component
+        class Motion : public Component<Motion>
         {
             math::Vector2D velocity;
             math::Vector2D acceleration;
         };
 
-        class Transform : public Component
+        class Transform : public Component<Transform>
         {
             int x;
             int y;
