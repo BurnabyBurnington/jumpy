@@ -1,11 +1,13 @@
 #pragma once
 
 #include <algorithm>
+#include <map>
 #include <memory>
 #include <utility>
 #include <vector>
 
 #include "componentManager.h"
+#include "componentMask.h"
 #include "components.h"
 #include "entity.h"
 #include "entityManager.h"
@@ -21,6 +23,7 @@ namespace game
     class World : public std::enable_shared_from_this<World>
     {
         public:
+            // TODO: Add member initialization
             World()
             {
                 this->entityManager = std::make_unique<game::EntityManager>();
@@ -31,19 +34,20 @@ namespace game
             {
                 auto manager = this->getComponentManager<Type>();
                 manager->add(entity, component);
+
+                auto previous = this->entityMasks[entity];
+                this->entityMasks[entity].addComponent<Type>();
+                this->updateEntityMask(entity, previous);
             }
 
-            void addSystem(std::unique_ptr<game::systems::System> system)
-            {
-                system->registerWorld(this);
-                this->systems.push_back(std::move(system));
-            }
+            void addSystem(std::unique_ptr<game::systems::System> system);
 
             game::EntityHandle createEntity();
 
             void initialize();
 
             void update(double delta);
+            void updateEntityMask(Entity const &entity, game::componentMask::Mask const &old);
 
         private:
             template<typename Type>
@@ -86,8 +90,9 @@ namespace game
             //     return std::distance(this->componentManagers.begin(), iterator);
             // }
 
-            std::vector<std::unique_ptr<game::systems::System>> systems;
+            std::map<Entity, game::componentMask::Mask> entityMasks;
             std::unique_ptr<game::EntityManager> entityManager;
             std::vector<std::unique_ptr<game::BaseComponentManager>> componentManagers;
+            std::vector<std::unique_ptr<game::systems::System>> systems;
     };
 }

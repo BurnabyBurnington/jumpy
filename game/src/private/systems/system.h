@@ -3,8 +3,8 @@
 #include <bitset>
 #include <vector>
 
+#include "../componentMask.h"
 #include "../entity.h"
-#include "../world.h"
 
 namespace game
 {
@@ -18,6 +18,8 @@ namespace game
                 // starts but *after* the world has been registered.
                 //
                 virtual void initialize() {};
+
+                game::componentMask::Mask getSignature() { return this->signature; }
 
                 #pragma GCC diagnostic push
                 #pragma GCC diagnostic ignored "-Wunused-parameter"
@@ -37,37 +39,23 @@ namespace game
                 }
 
                 // This entity has stopped fitting our current requirements
-                void deRegisterEntity(game::Entity entity) {
-                    for (
-                        auto iterator = this->registeredEntities.begin();
-                        iterator != this->registeredEntities.end();
-                        ++iterator
-                    ) {
-                        game::Entity found = *iterator;
+                void deregisterEntity(game::Entity entity);
 
-                        if (found == entity) {
-                            this->registeredEntities.erase(iterator);
+        protected:
+            // Specifies which components our system cares about — its size should =
+            // the number of different components.
+            //
+            // Important:
+            //    This assumes there's only 32 unique component families, maximum.
+            //    Otherwise, more need to be added.
+            //
+            game::componentMask::Mask signature;
 
-                            return;
-                        }
-                    }
-                }
+            // These entities fit the systemSignature and should be iterated upon for any functionality
+            std::vector<game::Entity> registeredEntities;
 
-        private:
-          // Specifies which components our system cares about — its size should =
-          // the number of different components.
-          //
-          // Important:
-          //    This assumes there's only 32 unique component families, maximum.
-          //    Otherwise, more need to be added.
-          //
-          std::bitset<32> systemSignature;
-
-          // These entities fit the systemSignature and should be iterated upon for any functionality
-          std::vector<game::Entity> registeredEntities;
-
-          // Reference to our parent world
-          game::World * world;
+            // Reference to our parent world
+            game::World * world;
         };
     }
 }

@@ -5,6 +5,7 @@ ECS links
 - https://makeitshaded.github.io/make-an-ecs/
 - https://www.youtube.com/watch?v=NTWSeQtHZ9M
 
+- joystick should be its own component
 - Re-organize all namespaces as files / folders
 - Consider move semantics, where possible
 - 99% sure the import order is wrong

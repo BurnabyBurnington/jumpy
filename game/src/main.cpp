@@ -24,7 +24,8 @@ int main(int argc, char *argv[])
     auto player {world.createEntity()};
     // TODO: Replace with {}s, if able
     player.addComponent(game::components::Health(3, 10));
-    player.addComponent(game::components::Joystick());
+    player.addComponent(game::components::Motion());
+    player.addComponent(game::components::Transform());
 
     std::unique_ptr<game::systems::System> joystick = std::make_unique<game::systems::Joystick>();
     world.addSystem(std::move(joystick));

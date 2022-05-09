@@ -13,15 +13,20 @@ namespace game
         class Joystick : public System
         {
             public:
+                Joystick() {
+                    this->signature.addComponent<game::components::Motion>();
+                    this->signature.addComponent<game::components::Transform>();
+                }
+
                 void rotateShip(double delta)
                 {
                     if (game::isKeyState(game::Direction::left))
                     {
-                        std::cout << "Tile left " << delta << '\n';
+                        std::cout << "left: " << delta << '\n';
                     }
                     else if (game::isKeyState(game::Direction::right))
                     {
-                        std::cout << "Tile right " << delta << '\n';
+                        std::cout << "right: " << delta << '\n';
                     }
                 }
 

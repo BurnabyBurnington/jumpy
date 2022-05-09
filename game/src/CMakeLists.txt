@@ -2,6 +2,8 @@ add_executable(jumpy_game
     main.cpp
     private/keyState.cpp
     private/window.cpp
+    private/systems/system.cpp
+    private/componentMask.cpp
     private/world.cpp
 )
 
@@ -14,7 +16,8 @@ target_compile_features(jumpy_game PRIVATE cxx_std_17)
 #     target_compile_options(jumpy_game PRIVATE -Wall -Wextra -Wpedantic -Werror)
 # endif()
 #
-target_compile_options(jumpy_game PRIVATE -Wall -Wextra -Wpedantic -Werror)
+# Add this `target_compile_options` back in, later
+# target_compile_options(jumpy_game PRIVATE -Wall -Wextra -Wpedantic -Werror)
 
 target_include_directories(jumpy_game PRIVATE private)
 

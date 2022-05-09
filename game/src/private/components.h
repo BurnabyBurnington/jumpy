@@ -9,7 +9,7 @@
 
 namespace
 {
-    static int FAMILY_COUNTER = 0;
+    static int FAMILY_COUNTER {0};
 }
 
 namespace game

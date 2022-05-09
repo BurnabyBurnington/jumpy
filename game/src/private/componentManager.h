@@ -33,7 +33,8 @@ namespace game
             {
                 ComponentInstance newInstance { this->data.size };
                 this->data.data[newInstance] = component;
-                this->entityMap[entity] = newInstance;
+                // TODO : Add this back in later, so we can map entity -> components
+                // this->entityMap[entity] = newInstance;
 
                 this->data.size++;
 
