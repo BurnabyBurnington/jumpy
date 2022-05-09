@@ -5,6 +5,7 @@
 
 #include <components.h>
 #include <entityHandle.h>
+#include <systems/joystick.h>
 #include <window.h>
 #include <world.h>
 
@@ -12,66 +13,58 @@ namespace {
     engine::Clock CLOCK {};
 }
 
+
 int main(int argc, char *argv[])
 {
     QApplication application(argc, argv);
 
     game::World world {};
-    auto player = world.createEntity();
-    auto health = player.addComponent(game::components::Health(3, 10));
-    std::cout << "Current health: " << health.get() << '\n';
-    health.heal(10);
-    std::cout << "Current health: " << health.get() << '\n';
+    auto player {world.createEntity()};
+    // TODO: Replace with {}s, if able
+    player.addComponent(game::components::Health(3, 10));
+    player.addComponent(game::components::Joystick());
 
-    // std::cout << "Got Health: " health.get() << '\n';
-    // game::EntityManager entityManager {};
-    // auto player = entityManager.create();
-    //
-    // game::components::Health health;
-    // health.current = 10;
-    // health.max = 10;
-    //
-    // healthManager.addComponent(player, health);
-    //
-    // Window window {};
-    //
-    // window.show();
-    //
-    // auto runGameLoop = [&application, &window]() {
-    //     auto totalTime{0.0};
-    //     auto const delta{0.02};
-    //
-    //     CLOCK.initialize();
-    //     auto accumulator{0.0};
-    //
-    //     while (!window.needsQuit())
-    //     {
-    //         if (application.hasPendingEvents())
-    //         {
-    //             application.processEvents();
-    //         }
-    //
-    //         CLOCK.newFrame();
-    //         auto const frameTime {CLOCK.timeSinceLastFrame()};
-    //
-    //         accumulator += frameTime;
-    //
-    //         while (accumulator >= delta)
-    //         {
-    //             if window.allowUserInput()
-    //             {
-    //                 simulate(delta);
-    //             }
-    //
-    //             accumulator -= delta;
-    //             totalTime += delta;
-    //         }
-    //
-    //         window.updateGL();
-    //     }
-    // };
-    //
-    // QTimer::singleShot(0, runGameLoop);
-    //
-    // return application.exec();
+    auto joystick = std::make_unique<game::systems::joystick>();
+    world.addSystem(std::move(joystick));
+
+    game::Window window {};
+    window.show();
+
+    auto runGameLoop = [&application, &world, &window]() {
+        auto totalTime{0.0};
+        auto const delta{0.02};
+
+        CLOCK.initialize();
+        auto accumulator{0.0};
+
+        while (!window.needsQuit())
+        {
+            if (application.hasPendingEvents())
+            {
+                application.processEvents();
+            }
+
+            CLOCK.newFrame();
+            auto const frameTime {CLOCK.timeSinceLastFrame()};
+
+            accumulator += frameTime;
+
+            while (accumulator >= delta)
+            {
+                if (window.allowUserInput())
+                {
+                    world.update(delta);
+                }
+
+                accumulator -= delta;
+                totalTime += delta;
+            }
+
+            window.updateGL();
+        }
+    };
+
+    QTimer::singleShot(0, runGameLoop);
+
+    return application.exec();
 }

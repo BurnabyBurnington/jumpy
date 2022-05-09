@@ -31,7 +31,7 @@ namespace {
 }
 
 namespace game {
-    bool Window::allowedUserInput()
+    bool Window::allowUserInput()
     {
         return this->underMouse();
     }
@@ -137,16 +137,5 @@ namespace game {
 
         // Draw the points
         glDrawArrays(GL_TRIANGLES, 0, VERTICES_COUNT);
-    }
-
-    void Window::simulate(double delta)
-    {
-        if (this->allowedUserInput())
-        {
-            // TODO: Add ECS (Entity Component System) logic
-            this->rotateShip(delta);
-            this->updateVelocity(delta);
-        }
-        SHIP_POSITION += SHIP_VELOCITY;
     }
 }

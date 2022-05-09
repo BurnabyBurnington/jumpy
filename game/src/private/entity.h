@@ -9,6 +9,7 @@ namespace game {
             Entity (game::types::EntityIndex id) : id(id) {}
 
             friend bool operator<(Entity const &left, Entity const &right) { return left.id < right.id; }
+            friend bool operator==(Entity const &left, Entity const &right) { return left.id == right.id; }
 
         private:
             game::types::EntityIndex id;
