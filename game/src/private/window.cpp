@@ -91,6 +91,8 @@ namespace game {
         // Create a viewport
         this->createViewport();
 
+        this->world->render();
+
         // To get OpenGL to send the data to RAM into the processing
         // pipeline, you have to tell OpenGL to enable that attribute
         // Attribute 0 is meaningless. But because we only have 1 attribute

@@ -8,7 +8,8 @@
 #include <components/components.h>
 #include <entityHandle.h>
 #include <systems/playerMovement.h>
-#include <systems/playerRenderer.h>
+#include <systems/pointRenderer.h>
+#include <utilities/playerMesh.h>
 #include <window.h>
 #include <world.h>
 
@@ -24,16 +25,19 @@ int main(int argc, char *argv[])
     game::World world {};
     auto mover = std::make_unique<game::systems::PlayerMovement>();
     world.addSystem(std::move(mover));
+    auto renderer = std::make_unique<game::systems::PointRenderer>();
+    world.addSystem(std::move(renderer));
 
     auto player {world.createEntity()};
     // TODO: Replace with {}s, if able
     // player.addComponent(game::components::Health(3, 10));
     // player.addComponent(game::components::Motion());
     // player.addComponent(game::components::Transform());
-    player.addComponent(game::systems::makePlayerRenderer());
+    player.addComponent(game::components::MeshPoints(game::utilities::makePlayerMesh()));
+    player.addComponent(game::components::Renderable());
 
     world.initialize();
-    game::Window window {};
+    game::Window window {&world};
     window.show();
 
     auto runGameLoop = [&application, &world, &window]() {

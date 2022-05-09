@@ -49,6 +49,10 @@ namespace game
             math::Vector2D acceleration;
         };
 
+        class Renderable : public Component<Renderable>
+        {
+        };
+
         class Transform : public Component<Transform>
         {
             math::Matrix3D transform;
