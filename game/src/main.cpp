@@ -27,12 +27,8 @@ int main(int argc, char *argv[])
     // entityMap[entity1] = 1;
     //
     // return 0;
-    game::World world {};
-    // auto mover = std::make_unique<game::systems::PlayerMovement>();
-    // world.addSystem(std::move(mover));
-    // auto renderer = std::make_unique<game::systems::PointRenderer>();
-    // world.addSystem(std::move(renderer));
 
+    game::World world {};
     game::Entity entity {1};
     auto health = game::components::Health(3, 10);
     auto healthManager = world.getComponentManager<game::components::Health>();
