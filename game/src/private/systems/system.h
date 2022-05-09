@@ -1,3 +1,5 @@
+#pragma once
+
 #include <bitset>
 #include <vector>
 
@@ -6,58 +8,66 @@
 
 namespace game
 {
-    class System {
-        public:
-            // Initialize the System — This happens *before* the game starts but
-            // *after* the world has been registered.
-            //
-            virtual void init() {};
+    class World;
 
-            virtual void update(int delta) {};
+    namespace systems
+    {
+        class System {
+            public:
+                // Initialize the System — This happens *before* the game
+                // starts but *after* the world has been registered.
+                //
+                virtual void initialize() {};
 
-            virtual void render() {};
+                #pragma GCC diagnostic push
+                #pragma GCC diagnostic ignored "-Wunused-parameter"
+                virtual void update(int delta) {};
+                #pragma GCC diagnostic pop
 
-            // Add a reference to the parent world
-            void registerWorld(game::World * world) {
-                this->world = world;
-            }
+                virtual void render() {};
 
-            // This entity fits our current requirements
-            void registerEntity(game::Entity entity) {
-                this->registeredEntities.push_back(entity);
-            }
+                // Add a reference to the parent world
+                void registerWorld(game::World * world) {
+                    this->world = world;
+                }
 
-            // This entity has stopped fitting our current requirements
-            void deRegisterEntity(game::Entity entity) {
-                for (
-                    auto iterator = this->registeredEntities.begin();
-                    iterator != this->registeredEntities.end();
-                    ++iterator
-                ) {
-                    game::Entity found = *iterator;
+                // This entity fits our current requirements
+                void registerEntity(game::Entity entity) {
+                    this->registeredEntities.push_back(entity);
+                }
 
-                    if (found == entity) {
-                        this->registeredEntities.erase(iterator);
+                // This entity has stopped fitting our current requirements
+                void deRegisterEntity(game::Entity entity) {
+                    for (
+                        auto iterator = this->registeredEntities.begin();
+                        iterator != this->registeredEntities.end();
+                        ++iterator
+                    ) {
+                        game::Entity found = *iterator;
 
-                        return;
+                        if (found == entity) {
+                            this->registeredEntities.erase(iterator);
+
+                            return;
+                        }
                     }
                 }
-            }
 
-    private:
-      // Specifies which components our system cares about — its size should =
-      // the number of different components.
-      //
-      // Important:
-      //    This assumes there's only 32 unique component families, maximum.
-      //    Otherwise, more need to be added.
-      //
-      std::bitset<32> systemSignature;
+        private:
+          // Specifies which components our system cares about — its size should =
+          // the number of different components.
+          //
+          // Important:
+          //    This assumes there's only 32 unique component families, maximum.
+          //    Otherwise, more need to be added.
+          //
+          std::bitset<32> systemSignature;
 
-      // These entities fit the systemSignature and should be iterated upon for any functionality
-      std::vector<game::Entity> registeredEntities;
+          // These entities fit the systemSignature and should be iterated upon for any functionality
+          std::vector<game::Entity> registeredEntities;
 
-      // Reference to our parent world
-      game::World * world;
-    };
+          // Reference to our parent world
+          game::World * world;
+        };
+    }
 }

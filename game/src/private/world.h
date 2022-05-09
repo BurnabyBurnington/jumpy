@@ -2,12 +2,14 @@
 
 #include <algorithm>
 #include <memory>
+#include <utility>
 #include <vector>
 
 #include "componentManager.h"
 #include "components.h"
 #include "entity.h"
 #include "entityManager.h"
+#include "systems/system.h"
 
 namespace game
 {
@@ -31,7 +33,17 @@ namespace game
                 manager->add(entity, component);
             }
 
+            void addSystem(std::unique_ptr<game::systems::System> system)
+            {
+                system->registerWorld(this);
+                this->systems.push_back(std::move(system));
+            }
+
             game::EntityHandle createEntity();
+
+            void initialize();
+
+            void update(double delta);
 
         private:
             template<typename Type>
@@ -56,6 +68,7 @@ namespace game
                 return static_cast<ComponentManager<Type>*>(raw);
             }
 
+            // TODO : Remove?
             // template<typename Type>
             // unsigned int getOrCreateComponentFamilyIndex()
             // {
@@ -73,6 +86,7 @@ namespace game
             //     return std::distance(this->componentManagers.begin(), iterator);
             // }
 
+            std::vector<std::unique_ptr<game::systems::System>> systems;
             std::unique_ptr<game::EntityManager> entityManager;
             std::vector<std::unique_ptr<game::BaseComponentManager>> componentManagers;
     };

@@ -1,3 +1,5 @@
+#include <utility>
+
 #include <QApplication>
 #include <QTimer>
 
@@ -24,7 +26,7 @@ int main(int argc, char *argv[])
     player.addComponent(game::components::Health(3, 10));
     player.addComponent(game::components::Joystick());
 
-    auto joystick = std::make_unique<game::systems::joystick>();
+    std::unique_ptr<game::systems::System> joystick = std::make_unique<game::systems::Joystick>();
     world.addSystem(std::move(joystick));
 
     game::Window window {};
