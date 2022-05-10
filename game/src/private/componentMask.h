@@ -20,7 +20,6 @@ namespace game
 
                 template<typename Type>
                 void addComponent() {
-                    // TODO : Check if `Type::family()` is also valid
                     this->mask |= (1 << game::components::Component<Type>::family());
                 }
 

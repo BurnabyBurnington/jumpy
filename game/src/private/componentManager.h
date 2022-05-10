@@ -25,7 +25,6 @@ namespace game
         std::array<Type, 1024> data;
     };
 
-    // TODO : Finish this
     template<typename Type>
     class ComponentManager : public BaseComponentManager
     {

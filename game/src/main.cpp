@@ -29,11 +29,10 @@ int main(int argc, char *argv[])
     world.addSystem(std::move(renderer));
 
     auto player {world.createEntity()};
-    // TODO: Replace with {}s, if able
-    player.addComponent(game::components::Health(3, 10));
-    player.addComponent(game::components::Motion());
-    player.addComponent(game::components::Transform());
-    player.addComponent(game::components::MeshPoints(game::utilities::makePlayerMesh()));
+    player.addComponent(game::components::Health{3, 10});
+    player.addComponent(game::components::Motion{});
+    player.addComponent(game::components::Transform{});
+    player.addComponent(game::components::MeshPoints{game::utilities::makePlayerMesh()});
     // player.addComponent(game::components::Renderable());
 
     world.initialize();

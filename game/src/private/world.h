@@ -59,11 +59,7 @@ namespace game
                 auto manager = this->getComponentManager<Type>();
                 auto component = manager->lookup(entity);
 
-                // TODO: Make this work with a generic component handler
                 handle = game::componentHandler::Handler<Type>(*component);
-                // handle = game::transformHandler::Handler(&component);
-                // handle = game::transformHandler::Handler(*component);
-                // handle.component = *component;
             }
 
             void update(double delta);
