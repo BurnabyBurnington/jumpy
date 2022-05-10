@@ -74,9 +74,7 @@ namespace game
             template<typename Type>
             ComponentManager<Type> *getComponentManager()
             {
-                // TODO : Replace this hard-coded value, later
-                auto family = game::components::Health::family();
-                // auto family = Type::family();
+                auto family = Type::family();
 
                 if (family >= this->componentManagers.size()) {
                     // Make room for the new family
