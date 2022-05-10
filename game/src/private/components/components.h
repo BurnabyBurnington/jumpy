@@ -39,14 +39,14 @@ namespace game
                 Health() : current(0), max(0) {}
                 Health(int current, int max) : current(current), max(max) {}
 
-                game::types::Health current;
-                game::types::Health max;
+                game::types::Health current {};
+                game::types::Health max {};
         };
 
         class Motion : public Component<Motion>
         {
-            math::Vector2D velocity;
-            math::Vector2D acceleration;
+            math::Vector2D velocity {};
+            math::Vector2D acceleration {};
         };
 
         class Renderable : public Component<Renderable>
@@ -61,7 +61,7 @@ namespace game
                 math::Matrix3D get() { return this->transform; }
 
             private:
-                math::Matrix3D transform;
+                math::Matrix3D transform {};
         };
 
         // TODO : Remove later
