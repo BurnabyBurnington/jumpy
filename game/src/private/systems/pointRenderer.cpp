@@ -11,7 +11,7 @@ namespace game
     {
         void PointRenderer::render()
         {
-            // TODO: Change all foo.component.bar calls to just foo.bar. Overload operator-> or something
+            // TODO: Change all foo.component->bar calls to just foo.bar. Overload operator-> or something
             for (auto &entity : this->registeredEntities)
             {
                 game::componentHandler::Handler<game::components::Transform> transform;
@@ -42,14 +42,14 @@ namespace game
                     0
                 );
 
-                auto count = points.component.getSize();
+                auto count = points.component->getSize();
                 math::Vector3D transformedVertices[count];
 
-                auto const fullTransform = transform.component.get();
+                auto const fullTransform = transform.component->get();
 
                 for (unsigned int index = 0; index < count; ++index)
                 {
-                    transformedVertices[index] = fullTransform * points.component.getFromIndex(index);
+                    transformedVertices[index] = fullTransform * points.component->getFromIndex(index);
                 }
 
                 // Send data to OpenGL

@@ -56,6 +56,11 @@ namespace game
         class Transform : public Component<Transform>
         {
             public:
+                Transform() = default;
+                // Transform(Transform const &) = delete;
+                // Transform& operator=(Transform const &) = delete;
+                ~Transform() = default;
+
                 void rotate(math::Radian const &radians) { this->transform.rotateZ(radians); }
 
                 math::Matrix3D get() { return this->transform; }

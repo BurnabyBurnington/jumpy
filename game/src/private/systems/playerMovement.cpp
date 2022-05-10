@@ -25,7 +25,7 @@ namespace game
                     // `transform.rotate()`, instead of
                     // `transform.component.rotate()`
                     //
-                    transform.component.rotate(rotate);
+                    transform.component->rotate(rotate);
                 }
             };
 

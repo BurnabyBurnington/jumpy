@@ -24,10 +24,11 @@ namespace game
         class Handler : public BaseHandler
         {
             public:
+                // TODO: Make the default constructor deleted, probably
                 Handler() = default;
-                Handler(Type &component) : component(component) {}
+                Handler(Type *component) : component(component) {}
 
-                Type component;
+                Type *component;
         };
     }
 }

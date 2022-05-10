@@ -57,9 +57,9 @@ namespace game
             void unpack(Entity entity, game::componentHandler::Handler<Type> &handle)
             {
                 auto manager = this->getComponentManager<Type>();
-                auto component = manager->lookup(entity);
+                auto *component = manager->lookup(entity);
 
-                handle = game::componentHandler::Handler<Type>(*component);
+                handle = game::componentHandler::Handler<Type>(component);
             }
 
             void update(double delta);
