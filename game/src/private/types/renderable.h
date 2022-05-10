@@ -7,6 +7,7 @@ namespace game
 {
     namespace types
     {
-        using Vertices = std::vector<math::Vector3D>;
+        using Vertex = math::Vector3D;
+        using Vertices = std::vector<Vertex>;
     }
 }

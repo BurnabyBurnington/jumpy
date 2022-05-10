@@ -86,46 +86,10 @@ namespace game {
 
     void Window::paintGL()
     {
+        // Clear existing buffer data so we can draw on a fresh view
         glClear(GL_COLOR_BUFFER_BIT);
-
-        // Create a viewport
         this->createViewport();
 
         this->world->render();
-
-        // To get OpenGL to send the data to RAM into the processing
-        // pipeline, you have to tell OpenGL to enable that attribute
-        // Attribute 0 is meaningless. But because we only have 1 attribute
-        // (position), we use 0 as the 1st index in order to mean "position".
-        //
-        // TODO: Move this later
-        //
-        GLuint attributeIndex {0};
-        glEnableVertexAttribArray(attributeIndex);
-        // We now need to describe the attribute and data to OpenGL. We say
-        // that the attribute is a float with a size of 3 (because it's a Vector3D).
-        //
-        glVertexAttribPointer(attributeIndex, math::Vector3D::size, GL_FLOAT, GL_FALSE, 0, 0);
-
-        math::Vector3D transformedVertices[VERTICES_COUNT];
-        auto const transform = 
-            math::Matrix3D::translate(SHIP_POSITION) *
-            math::Matrix3D::rotateZ(math::Radian{SHIP_ORIENTATION});
-
-        for (unsigned int index = 0; index < VERTICES_COUNT; ++index)
-        {
-            transformedVertices[index] = transform * VERTICES[index];
-        }
-
-        // Send data to OpenGL
-        glBufferSubData(
-            GL_ARRAY_BUFFER,
-            0,
-            sizeof(transformedVertices),
-            transformedVertices
-        );
-
-        // Draw the points
-        glDrawArrays(GL_TRIANGLES, 0, VERTICES_COUNT);
     }
 }

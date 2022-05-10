@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     player.addComponent(game::components::Motion{});
     player.addComponent(game::components::Transform{});
     player.addComponent(game::components::MeshPoints{game::utilities::makePlayerMesh()});
-    // player.addComponent(game::components::Renderable());
+    player.addComponent(game::components::Renderable{});
 
     world.initialize();
     game::Window window {&world};

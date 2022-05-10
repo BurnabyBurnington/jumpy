@@ -55,15 +55,13 @@ namespace game
 
         class Transform : public Component<Transform>
         {
-            math::Matrix3D transform;
-
             public:
-                // TODO: Consider strong types, here
-                void rotate(math::Radian const &radians)
-                {
-                    std::cout << "ROTATING here " << radians.get() << "\n";
-                    this->transform.rotateZ(radians);
-                }
+                void rotate(math::Radian const &radians) { this->transform.rotateZ(radians); }
+
+                math::Matrix3D get() { return this->transform; }
+
+            private:
+                math::Matrix3D transform;
         };
 
         // TODO : Remove later

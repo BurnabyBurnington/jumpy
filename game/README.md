@@ -1,6 +1,7 @@
 TODO
 - renderable should be renamed to imageable or something
 - joystick should be its own component
+- Adding const onto local instances which are unchanging
 - Re-organize all namespaces as files / folders
 - Consider move semantics, where possible
 - 99% sure the import order is wrong

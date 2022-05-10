@@ -4,6 +4,8 @@ add_executable(jumpy_game
     main.cpp
     private/componentMask.cpp
     private/keyState.cpp
+    private/systems/playerMovement.cpp
+    private/systems/pointRenderer.cpp
     private/systems/system.cpp
     private/window.cpp
     private/world.cpp
