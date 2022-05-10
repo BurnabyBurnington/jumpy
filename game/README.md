@@ -1,10 +1,5 @@
-ECS links
-- https://savas.ca/nomad
-- https://sunjay.dev/learn-game-dev/adding-ecs.html
-- https://spin.atomicobject.com/2016/04/22/entity-component-systems/
-- https://makeitshaded.github.io/make-an-ecs/
-- https://www.youtube.com/watch?v=NTWSeQtHZ9M
-
+TODO
+- renderable should be renamed to imageable or something
 - joystick should be its own component
 - Re-organize all namespaces as files / folders
 - Consider move semantics, where possible
@@ -12,6 +7,14 @@ ECS links
 - Check for forward declarations
 - Check if I can make stuff const / reference etc
 - Move ECS stuff to the engine, later
+
+
+ECS links
+- https://savas.ca/nomad
+- https://sunjay.dev/learn-game-dev/adding-ecs.html
+- https://spin.atomicobject.com/2016/04/22/entity-component-systems/
+- https://makeitshaded.github.io/make-an-ecs/
+- https://www.youtube.com/watch?v=NTWSeQtHZ9M
 
 
 ## TODO
